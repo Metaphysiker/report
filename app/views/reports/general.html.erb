@@ -1,0 +1,68 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Report</h1>
+<br><br>
+<h2>Profile insgesamt: <%= @generalinformation["allprofiles"] %></h2>
+
+<table>
+  <tr>
+    <td>
+      <%= pie_chart({"Mitglieder" => @generalinformation["members"], "Institutionen" => @generalinformation["institutions"]})%>
+    </td>
+    <td>
+      <%= pie_chart({"Öffentlich" => @generalinformation["public"], "Privat" => @generalinformation["private"]}, colors: ["green", "orange"])%>
+    </td>
+    <td>
+      <%= pie_chart({"Allgemein" => @generalinformation["allgemein"], "Experte" => @generalinformation["expert"]}, colors: ["gray", "black"]) %>
+    </td>
+  </tr>
+</table>
+
+<h1>Benutzerprofile erstellt (Mitglieder)</h1>
+<%= line_chart AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at).count %>
+
+<h1>Kommentare erstellt</h1>
+<%= line_chart Comment.group_by_week(:created_at).count %>
+
+<h1>Events erstellt</h1>
+<%= line_chart AlchemyPage.where(page_layout: "event").group_by_week(:created_at).count %>
+
+<h1>Artikel erstellt</h1>
+<%= line_chart AlchemyPage.where(page_layout: "article").group_by_week(:created_at).count %>
+
+<h1>CfP erstellt</h1>
+<%= line_chart AlchemyPage.where(page_layout: "call_for_papers").group_by_week(:created_at).count %>
+
+<h1>Jobs erstellt</h1>
+<%= line_chart AlchemyPage.where(page_layout: "job").group_by_week(:created_at).count %>
+
+<h1>Newsletter bezogen</h1>
+<%= line_chart Subscription.group_by_week(:created_at).count %>
+
+<h1>Newsletter aktiv</h1>
+<%= column_chart({"Aktiv" => Subscription.where(active: true).count , "Total" => Subscription.all.count}) %>
+
+<h1>Interessensgebiete (Mitglieder)</h1>
+<%= bar_chart @interests, height: "1500px"%>
+
+<h1>Zuletzt angemeldet</h1>
+<%= column_chart AlchemyUser.where(alchemy_roles: "member").group_by_month(:last_sign_in_at).count %>
+
+<% @unis.each do |uni| %>
+    <h2><%= uni.title %>:</h2>
+    <table>
+      <% uni.information.each do |key, value| %>
+      <tr>
+        <td>
+          <%= key %>
+        </td>
+        <td>
+          <%= value %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+<% end %>
+
+
+

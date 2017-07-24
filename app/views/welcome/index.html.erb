@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <th>Interessensgebiet</th>
+    <th>Anzahl</th>
+  </tr>
+
+  <% @topics.to_a.each do |topic| %>
+      <tr>
+      <td> <%= topic[0] %>: </td><td> <%= topic[1] %></td>
+      </tr>
+  <% end %>
+
+</table>

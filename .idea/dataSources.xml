@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails reports: production" uuid="2e96a9a1-e78a-4104-80e3-454d0aca7967">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:reports_production</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails reports: development" uuid="5210d58d-e016-43bc-85c9-560245218e13">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:reports_development</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails reports: test" uuid="62ff38a0-c26d-4e8f-81c4-bb4b9c3a704b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:reports_test</jdbc-url>
+    </data-source>
+  </component>
+</project>
