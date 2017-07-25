@@ -1,11 +1,11 @@
 class Command
   def create(date)
     @report = Report.create(date)
-    analyze(@report)
+    general(@report)
     unis(@report)
   end
 
-  def analyze(report)
+  def general(report)
 
     allprofiles = Profile.all.count
     members = AlchemyUser.where(alchemy_roles: "member").count
@@ -15,6 +15,18 @@ class Command
     allgemein = Profile.where(level: 0).count
     expert = Profile.where(level: 1).count
 
+    report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at).count
+    report.kommentareerstellt = Comment.group_by_week(:created_at).count
+    report.eventserstellt =  AlchemyPage.where(page_layout: "event").group_by_week(:created_at).count
+    report.artikelerstellt = AlchemyPage.where(page_layout: "article").group_by_week(:created_at).count
+    report.cfperstellt = AlchemyPage.where(page_layout: "call_for_papers").group_by_week(:created_at).count
+    report.jobserstellt = AlchemyPage.where(page_layout: "job").group_by_week(:created_at).count
+    report.newslettererstellt = Subscription.group_by_week(:created_at).count
+    report.zuletztangemeldet = AlchemyUser.where(alchemy_roles: "member").group_by_month(:last_sign_in_at).count
+
+    newsletteraktiv = Subscription.where(active: true).count
+    newslettertotal = Subscription.all.count
+
     report.general = {
         allprofiles: allprofiles,
         members: members,
@@ -22,13 +34,30 @@ class Command
         public: public,
         private: private,
         allgemein: allgemein,
-        expert: expert
+        expert: expert,
+        newsletteraktiv: newsletteraktiv,
+        newslettertotal: newslettertotal
+    }
+
+    report.stackedinterests = count_chosen_topics_stacked("member")
+    report.save!
+
+  end
+
+  def interests(report)
+
+    stacked_interests = count_chosen_topics_stacked("member")
+    interests = count_chosen_topics("member")
+
+    report.interests = {
+        stacked_interests: stacked_interests,
+        interests: interests
     }
 
     report.save!
-    return report.general
 
   end
+
 
   def unis(report)
     all_unis = Profile.all.distinct.pluck(:institutional_affiliation)
@@ -97,12 +126,9 @@ class Command
     end
 
     ordered_array = count_chosen_topics(scope)
-    logger.debug ordered_array.inspect
 
     ordered_array.each do |element|
-      logger.debug element.inspect
       element[1] = expert_data[element[0]]
-      logger.debug element.inspect
     end
 
     expert_array = ordered_array
@@ -120,6 +146,11 @@ class Command
             name: "Allgemein",
             data: allgemein_array
         }
+    ]
+
+    final_array = [
+        expert_array,
+        allgemein_array
     ]
 
     return final_array

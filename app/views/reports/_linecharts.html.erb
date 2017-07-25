@@ -1,0 +1,26 @@
+<br>
+<h1>Benutzerprofile erstellt (Mitglieder): <%= report.general["members"] %> Zeitraum: 1.1.2017 - 30.6.2017</h1>
+<%= line_chart report.profileerstellt %>
+
+<br>
+
+<h1>Kommentare erstellt</h1>
+<%= line_chart report.kommentareerstellt %>
+
+<h1>Events erstellt</h1>
+<%= line_chart report.eventserstellt %>
+
+<h1>Artikel erstellt</h1>
+<%= line_chart report.artikelerstellt %>
+
+<h1>CfP erstellt</h1>
+<%= line_chart report.cfperstellt %>
+
+<h1>Jobs erstellt</h1>
+<%= line_chart report.jobserstellt %>
+
+<h1>Newsletter bezogen</h1>
+<%= line_chart report.newslettererstellt %>
+
+<h1>Newsletter aktiv</h1>
+<%= column_chart({"Aktiv" => report.general["newsletteraktiv"] , "Total" => report.general["newslettertotal"]}) %>

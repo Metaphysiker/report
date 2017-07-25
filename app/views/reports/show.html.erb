@@ -7,3 +7,12 @@
 
 <%= link_to 'Edit', edit_report_path(@report) %> |
 <%= link_to 'Back', reports_path %>
+
+
+<%= render partial: "piecharts", locals: {report: @report} %>
+
+<%= render partial: "linecharts", locals: {report: @report} %>
+
+<%= render partial: "interests", locals: {report: @report} %>
+
+<%= render partial: "newsletter", locals: {report: @report} %>

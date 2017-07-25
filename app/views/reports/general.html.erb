@@ -7,18 +7,18 @@
 <table>
   <tr>
     <td>
-      <%= pie_chart({"Mitglieder" => @generalinformation["members"], "Institutionen" => @generalinformation["institutions"]})%>
+      <%= pie_chart({"Mitglieder: #{@generalinformation["members"]}" => @generalinformation["members"], "Institutionen: #{@generalinformation["institutions"]}" => @generalinformation["institutions"]})%>
     </td>
     <td>
-      <%= pie_chart({"Öffentlich" => @generalinformation["public"], "Privat" => @generalinformation["private"]}, colors: ["green", "orange"])%>
+      <%= pie_chart({"Öffentlich: #{@generalinformation["public"]}" => @generalinformation["public"], "Privat: #{@generalinformation["private"]}" => @generalinformation["private"]}, colors: ["green", "orange"])%>
     </td>
     <td>
-      <%= pie_chart({"Allgemein" => @generalinformation["allgemein"], "Experte" => @generalinformation["expert"]}, colors: ["gray", "black"]) %>
+      <%= pie_chart({"Allgemein: #{@generalinformation["allgemein"]}" => @generalinformation["allgemein"], "Experten: #{@generalinformation["expert"]}" => @generalinformation["expert"]}, colors: ["gray", "black"]) %>
     </td>
   </tr>
 </table>
 
-<h1>Benutzerprofile erstellt (Mitglieder)</h1>
+<h1>Benutzerprofile erstellt (Mitglieder): <%= AlchemyUser.where(alchemy_roles: "member").count %>. Zeitraum: <%= AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at).count.first[0] %></h1>
 <%= line_chart AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at).count %>
 
 <h1>Kommentare erstellt</h1>

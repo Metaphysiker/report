@@ -4,6 +4,10 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
 
+  def firsthalfyear
+    @report = Report.first
+  end
+
   def general
 
     @reports = Report.all
@@ -87,6 +91,13 @@ class ReportsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def calculatenew(value, range)
+
+
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
