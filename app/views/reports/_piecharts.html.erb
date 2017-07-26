@@ -9,5 +9,8 @@
     <td>
       <%= pie_chart({"Allgemein: #{report.general["allgemein"]}" => report.general["allgemein"], "Experten: #{report.general["expert"]}" => report.general["expert"]}, colors: ["gray", "black"]) %>
     </td>
+    <td>
+      <%= pie_chart({"Einer Uni zugehörig: #{report.general["belongtouni"]}" => report.general["belongtouni"], "Ohne Zugehörigkeit: #{report.general["belongtonouni"]}" => report.general["belongtonouni"]}, colors: ["yellow", "pink"]) %>
+    </td>
   </tr>
 </table>

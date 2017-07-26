@@ -14,6 +14,8 @@ class Command
     private = Profile.where(public: false).count
     allgemein = Profile.where(level: 0).count
     expert = Profile.where(level: 1).count
+    belongtouni = Profile.where.not(institutional_affiliation: "").count
+    belongtonouni = Profile.where(institutional_affiliation: "").count
 
     report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at).count
     report.kommentareerstellt = Comment.group_by_week(:created_at).count
@@ -35,6 +37,8 @@ class Command
         private: private,
         allgemein: allgemein,
         expert: expert,
+        belongtouni: belongtouni,
+        belongtonouni: belongtonouni,
         newsletteraktiv: newsletteraktiv,
         newslettertotal: newslettertotal
     }
@@ -61,6 +65,9 @@ class Command
 
   def unis(report)
     all_unis = Profile.all.distinct.pluck(:institutional_affiliation)
+
+    all_unis.delete("")
+
     all_unis.each do |uni|
 
       university = report.universities.create(title: uni)
