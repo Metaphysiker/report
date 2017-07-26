@@ -70,16 +70,24 @@ class Command
       types = Profile.where(institutional_affiliation: uni).pluck(:type_of_affiliation)
 
       types.each do |type|
-        hash[type] = Profile.where(institutional_affiliation: uni).where(type_of_affiliation: type).count
-      end
+
+        name = type
+        results = Profile.where(institutional_affiliation: uni).where(type_of_affiliation: type).count
+
+        if type.nil? || type.empty?
+          name = "institution"
+        end
+
+        hash[name] = results
 
       university.information = hash
 
-      university.save!
+      university.save
 
     end
 
-  end
+    end
+    end
 
   def count_chosen_topics(scope = nil)
     all_topics = Topic.all.distinct.pluck(:name)
@@ -167,4 +175,5 @@ class Command
       end
     end
   end
+
 end

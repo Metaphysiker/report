@@ -86,16 +86,7 @@ then
 echo 'Command.new.create(date: Date.today)' | rails c
 
 DATE=$(date +%d-%m-%Y)
-echo "./philoanalyzer.sh \"/home/sandro/Documents/philobackups/$DATE.dump\"" >> analyzeallbackups.sh
-
-else
-  STR=$(echo $1 | cut -b 37-46)
-
-  echo $STR
-
-echo "Command.new.create(date: Date.parse('$STR'))" | rails c
-
-fi
+echo "./philoanalyzer.sh \"/home/sandro/Documents/philobackups/$DATE.dump\"" >> listofdumpscommands.sh
 
 psql reports_development << EOF
 DELETE FROM alchemy_essence_dates;
@@ -138,5 +129,14 @@ heroku pg:reset --confirm evening-ravine-89617
 
 #push to heroku
 heroku pg:push reports_development DATABASE_URL --app evening-ravine-89617
+
+else
+  STR=$(echo $1 | cut -b 37-46)
+
+  echo $STR
+
+echo "Command.new.create(date: Date.parse('$STR'))" | rails c
+
+fi
 
 #pg_dump reports_development -t reports -t universities

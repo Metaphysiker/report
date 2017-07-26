@@ -21,22 +21,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Report', new_report_path %>
-
-<h1>Benutzerprofile erstellt, nur Mitglieder)</h1>
-<%= line_chart AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at).count %>
-
-<h1>Kommentare erstellt</h1>
-<%= line_chart Comment.group_by_week(:created_at).count %>
-
-
-<h1>Interessensgebiete, nur Mitglieder</h1>
-<%= bar_chart @interests, height: "1500px"%>
-
-
-<h1>Reports</h1>
-<%= line_chart @memberinos %>
-

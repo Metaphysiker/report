@@ -1,0 +1,15 @@
+<% report.universities.each do |uni| %>
+    <h2><%= uni.title %>:</h2>
+    <table>
+      <% uni.information.each do |key, value| %>
+          <tr>
+            <td>
+              <%= key %>
+            </td>
+            <td>
+              <%= value %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>
