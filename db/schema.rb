@@ -433,6 +433,7 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.date "whichbackup"
     t.date "startdate"
     t.date "enddate"
+    t.hstore "societies"
     t.hstore "profileerstellt"
     t.hstore "profiletotal"
     t.hstore "kommentareerstellt"
@@ -466,6 +467,7 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.index ["preferences"], name: "index_reports_on_preferences", using: :gin
     t.index ["profileerstellt"], name: "index_reports_on_profileerstellt", using: :gin
     t.index ["profiletotal"], name: "index_reports_on_profiletotal", using: :gin
+    t.index ["societies"], name: "index_reports_on_societies", using: :gin
     t.index ["stats"], name: "index_reports_on_stats", using: :gin
     t.index ["zuletztangemeldet"], name: "index_reports_on_zuletztangemeldet", using: :gin
   end

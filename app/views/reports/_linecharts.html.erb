@@ -1,49 +1,46 @@
 <br>
-<h1>Zeitraum: <%= report.startdate %> - <%= report.enddate %></h1>
-<br>
-
-<h1>Benutzerprofile erstellt (Mitglieder): <%= report.profiletotal[report.enddate.to_s].to_i - report.profiletotal[report.startdate.to_s].to_i  %></h1>
+<h2>Benutzerprofile erstellt (Mitglieder): <%= report.profiletotal[report.enddate.to_s].to_i - report.profiletotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.profileerstellt %>
 <br>
-<h1>Benutzerprofile total</h1>
+<h2>Benutzerprofile total</h2>
 <%= area_chart report.profiletotal  %>
 <br>
-<h1>Kommentare erstellt: <%= report.kommentaretotal[report.enddate.to_s].to_i - report.kommentaretotal[report.startdate.to_s].to_i  %></h1>
+<h2>Kommentare erstellt: <%= report.kommentaretotal[report.enddate.to_s].to_i - report.kommentaretotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.kommentareerstellt %>
 <br>
-<h1>Kommentare total</h1>
+<h2>Kommentare total</h2>
 <%= area_chart report.kommentaretotal  %>
 <br>
-<h1>Events erstellt: <%= report.eventstotal[report.enddate.to_s].to_i - report.eventstotal[report.startdate.to_s].to_i  %></h1>
+<h2>Events erstellt: <%= report.eventstotal[report.enddate.to_s].to_i - report.eventstotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.eventserstellt %>
 <br>
-<h1>Events total</h1>
+<h>Events total</h>
 <%= area_chart report.eventstotal  %>
 <br>
-<h1>Artikel erstellt: <%= report.artikeltotal[report.enddate.to_s].to_i - report.artikeltotal[report.startdate.to_s].to_i  %></h1>
+<h2>Artikel erstellt: <%= report.artikeltotal[report.enddate.to_s].to_i - report.artikeltotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.artikelerstellt %>
 <br>
-<h1>Artikel total</h1>
+<h2>Artikel total</h2>
 <%= area_chart report.artikeltotal  %>
 <br>
-<h1>CfP erstellt: <%= report.cfptotal[report.enddate.to_s].to_i - report.cfptotal[report.startdate.to_s].to_i  %></h1>
+<h2>CfP erstellt: <%= report.cfptotal[report.enddate.to_s].to_i - report.cfptotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.cfperstellt %>
 <br>
-<h1>CfP total</h1>
+<h2>CfP total</h2>
 <%= area_chart report.cfptotal  %>
 <br>
-<h1>Jobs erstellt: <%= report.jobstotal[report.enddate.to_s].to_i - report.jobstotal[report.startdate.to_s].to_i  %></h1>
+<h2>Jobs erstellt: <%= report.jobstotal[report.enddate.to_s].to_i - report.jobstotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.jobserstellt %>
 <br>
-<h1>Jobs total</h1>
+<h2>Jobs total</h2>
 <%= area_chart report.jobstotal  %>
 <br>
-<h1>Newsletter bezogen: <%= report.newslettertotal[report.enddate.to_s].to_i - report.newslettertotal[report.startdate.to_s].to_i  %></h1>
+<h2>Newsletter bezogen: <%= report.newslettertotal[report.enddate.to_s].to_i - report.newslettertotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.newslettererstellt %>
 <br>
-<h1>Newsletter total</h1>
+<h2>Newsletter total</h2>
 <%= area_chart report.newslettertotal  %>
 <br>
 
-<h1>Newsletter aktiv</h1>
+<h2>Newsletter aktiv</h2>
 <%= column_chart({"Aktiv" => report.general["newsletteraktiv"] , "Total" => report.general["newslettertotal"]}) %>

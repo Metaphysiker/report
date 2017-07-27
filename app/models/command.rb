@@ -9,11 +9,123 @@ class Command
     @report = Report.create(date: date)
     special(@report, startdate, enddate)
     unisspecial(@report, enddate)
+    societyspecial(@report, enddate)
   end
 
-  def specificdates
+  def special(report, startdate=nil, enddate=nil)
+
+    report.specialreport = true
+    report.whichbackup = report.date
+
+    startdate = startdate
+    enddate = enddate
+
+    if startdate.nil?
+      startdate = AlchemyUser.order('created_at asc').where.not(created_at: nil).first.created_at.to_date
+    end
+
+    if enddate.nil?
+      enddate = AlchemyUser.order('created_at asc').where.not(created_at: nil).last.created_at.to_date
+    end
+
+    allprofiles = Profile.where("created_at < ?", enddate).count
+    members = AlchemyUser.where(alchemy_roles: "member").where("created_at < ?", enddate).count
+    institutions = AlchemyUser.where(alchemy_roles: "institution").where("created_at < ?", enddate).count
+    public = Profile.where(public: true).where("created_at < ?", enddate).count
+    private = Profile.where(public: false).where("created_at < ?", enddate).count
+    allgemein = Profile.where(level: 0).where("created_at < ?", enddate).count
+    expert = Profile.where(level: 1).where("created_at < ?", enddate).count
+    belongtouni = Profile.where.not(institutional_affiliation: "").where("created_at < ?", enddate).count
+    belongtonouni = Profile.where(institutional_affiliation: "").where("created_at < ?", enddate).count
+
+    report.startdate = startdate
+    report.enddate = enddate
+    report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at, range: startdate..enddate).count
+    report.profiletotal = totalareacalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
+    report.kommentareerstellt = Comment.group_by_week(:created_at, range: startdate..enddate).count
+    report.kommentaretotal = totalareacalculator(Comment.all, startdate, enddate)
+    report.eventserstellt =  AlchemyPage.where(page_layout: "event").group_by_week(:created_at, range: startdate..enddate).count
+    report.eventstotal = totalareacalculator(AlchemyPage.where(page_layout: "event"), startdate, enddate)
+    report.artikelerstellt = AlchemyPage.where(page_layout: "article").group_by_week(:created_at, range: startdate..enddate).count
+    report.artikeltotal = totalareacalculator(AlchemyPage.where(page_layout: "article"), startdate, enddate)
+    report.cfperstellt = AlchemyPage.where(page_layout: "call_for_papers").group_by_week(:created_at, range: startdate..enddate).count
+    report.cfptotal = totalareacalculator(AlchemyPage.where(page_layout: "call_for_papers"), startdate, enddate)
+    report.jobserstellt = AlchemyPage.where(page_layout: "job").group_by_week(:created_at, range: startdate..enddate).count
+    report.jobstotal = totalareacalculator(AlchemyPage.where(page_layout: "job"),startdate, enddate)
+    report.newslettererstellt = Subscription.group_by_week(:created_at, range: startdate..enddate).count
+    report.newslettertotal = totalareacalculator(Subscription.all, startdate, enddate)
+    report.zuletztangemeldet = AlchemyUser.where(alchemy_roles: "member").group_by_month(:last_sign_in_at, range: startdate..enddate).count
+
+    newsletteraktiv = Subscription.where(active: true).where("created_at < ?", enddate).count
+    newslettertotal = Subscription.where("created_at < ?", enddate).count
+
+    report.general = {
+        allprofiles: allprofiles,
+        members: members,
+        institutions: institutions,
+        public: public,
+        private: private,
+        allgemein: allgemein,
+        expert: expert,
+        belongtouni: belongtouni,
+        belongtonouni: belongtonouni,
+        newsletteraktiv: newsletteraktiv,
+        newslettertotal: newslettertotal
+    }
+
+    report.stackedinterests = count_chosen_topics_stacked("member")
+    report.save!
 
   end
+
+
+  def unisspecial(report, enddate)
+    all_unis = Profile.all.distinct.pluck(:institutional_affiliation)
+
+    all_unis.delete("")
+
+    all_unis.each do |uni|
+
+      university = report.universities.create(title: uni)
+
+      hash = {}
+
+      types = Profile.where(institutional_affiliation: uni).pluck(:type_of_affiliation)
+
+      types.each do |type|
+
+        name = type
+        results = Profile.where(institutional_affiliation: uni).where(type_of_affiliation: type).where("created_at < ?", enddate).count
+
+        if type.nil? || type.empty?
+          name = "institution"
+        end
+
+        hash[name] = results
+
+        university.information = hash
+
+        university.save
+
+      end
+
+    end
+  end
+
+  def societyspecial(report, enddate)
+    all_societies = Society.all
+    hash = {}
+
+    all_societies.each do |society|
+      hash[society.name] = Profile.where(society_id: society.id).where("created_at < ?", enddate).count
+    end
+
+    report.societies = hash
+    report.save
+  end
+
+
+
 
   def general1(report, startdate=nil, enddate=nil)
 
@@ -144,71 +256,6 @@ class Command
 
   end
 
-  def special(report, startdate=nil, enddate=nil)
-
-    report.specialreport = true
-    report.whichbackup = report.date
-
-    startdate = startdate
-    enddate = enddate
-
-    if startdate.nil?
-      startdate = AlchemyUser.order('created_at asc').where.not(created_at: nil).first.created_at.to_date
-    end
-
-    if enddate.nil?
-      enddate = AlchemyUser.order('created_at asc').where.not(created_at: nil).last.created_at.to_date
-    end
-
-    allprofiles = Profile.where("created_at < ?", enddate).count
-    members = AlchemyUser.where(alchemy_roles: "member").where("created_at < ?", enddate).count
-    institutions = AlchemyUser.where(alchemy_roles: "institution").where("created_at < ?", enddate).count
-    public = Profile.where(public: true).where("created_at < ?", enddate).count
-    private = Profile.where(public: false).where("created_at < ?", enddate).count
-    allgemein = Profile.where(level: 0).where("created_at < ?", enddate).count
-    expert = Profile.where(level: 1).where("created_at < ?", enddate).count
-    belongtouni = Profile.where.not(institutional_affiliation: "").where("created_at < ?", enddate).count
-    belongtonouni = Profile.where(institutional_affiliation: "").where("created_at < ?", enddate).count
-
-    report.startdate = startdate
-    report.enddate = enddate
-    report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at, range: startdate..enddate).count
-    report.profiletotal = totalareacalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
-    report.kommentareerstellt = Comment.group_by_week(:created_at, range: startdate..enddate).count
-    report.kommentaretotal = totalareacalculator(Comment.all, startdate, enddate)
-    report.eventserstellt =  AlchemyPage.where(page_layout: "event").group_by_week(:created_at, range: startdate..enddate).count
-    report.eventstotal = totalareacalculator(AlchemyPage.where(page_layout: "event"), startdate, enddate)
-    report.artikelerstellt = AlchemyPage.where(page_layout: "article").group_by_week(:created_at, range: startdate..enddate).count
-    report.artikeltotal = totalareacalculator(AlchemyPage.where(page_layout: "article"), startdate, enddate)
-    report.cfperstellt = AlchemyPage.where(page_layout: "call_for_papers").group_by_week(:created_at, range: startdate..enddate).count
-    report.cfptotal = totalareacalculator(AlchemyPage.where(page_layout: "call_for_papers"), startdate, enddate)
-    report.jobserstellt = AlchemyPage.where(page_layout: "job").group_by_week(:created_at, range: startdate..enddate).count
-    report.jobstotal = totalareacalculator(AlchemyPage.where(page_layout: "job"),startdate, enddate)
-    report.newslettererstellt = Subscription.group_by_week(:created_at, range: startdate..enddate).count
-    report.newslettertotal = totalareacalculator(Subscription.all, startdate, enddate)
-    report.zuletztangemeldet = AlchemyUser.where(alchemy_roles: "member").group_by_month(:last_sign_in_at, range: startdate..enddate).count
-
-    newsletteraktiv = Subscription.where(active: true).count
-    newslettertotal = Subscription.all.count
-
-    report.general = {
-        allprofiles: allprofiles,
-        members: members,
-        institutions: institutions,
-        public: public,
-        private: private,
-        allgemein: allgemein,
-        expert: expert,
-        belongtouni: belongtouni,
-        belongtonouni: belongtonouni,
-        newsletteraktiv: newsletteraktiv,
-        newslettertotal: newslettertotal
-    }
-
-    report.stackedinterests = count_chosen_topics_stacked("member")
-    report.save!
-
-  end
 
   def interests(report)
 
@@ -254,39 +301,6 @@ class Command
       university.save
 
     end
-
-    end
-  end
-
-  def unisspecial(report, enddate)
-    all_unis = Profile.all.distinct.pluck(:institutional_affiliation)
-
-    all_unis.delete("")
-
-    all_unis.each do |uni|
-
-      university = report.universities.create(title: uni)
-
-      hash = {}
-
-      types = Profile.where(institutional_affiliation: uni).pluck(:type_of_affiliation)
-
-      types.each do |type|
-
-        name = type
-        results = Profile.where(institutional_affiliation: uni).where(type_of_affiliation: type).where("created_at < ?", enddate).count
-
-        if type.nil? || type.empty?
-          name = "institution"
-        end
-
-        hash[name] = results
-
-        university.information = hash
-
-        university.save
-
-      end
 
     end
   end

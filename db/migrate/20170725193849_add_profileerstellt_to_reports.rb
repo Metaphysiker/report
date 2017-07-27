@@ -7,6 +7,10 @@ class AddProfileerstelltToReports < ActiveRecord::Migration[5.1]
     add_column :reports, :startdate, :date
     add_column :reports, :enddate, :date
 
+
+    add_column :reports, :societies, :hstore
+    add_index :reports, :societies, using: :gin
+
     add_column :reports, :profileerstellt, :hstore
     add_index :reports, :profileerstellt, using: :gin
 
