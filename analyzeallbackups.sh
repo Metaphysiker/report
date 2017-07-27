@@ -47,3 +47,4 @@ heroku pg:reset --confirm evening-ravine-89617
 heroku pg:push reports_development DATABASE_URL --app evening-ravine-89617
 
 heroku open
+

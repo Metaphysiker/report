@@ -30,7 +30,9 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all
+    @reports = Report.where(specialreport: false)
+
+    @specialreports = Report.where(specialreport: true)
 
 
     @interests = count_chosen_topics("member")

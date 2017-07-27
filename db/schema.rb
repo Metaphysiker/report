@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725193849) do
+ActiveRecord::Schema.define(version: 20170725132903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -429,27 +429,10 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.hstore "general"
     t.hstore "interests"
     t.hstore "stats"
-    t.hstore "profileerstellt"
-    t.hstore "kommentareerstellt"
-    t.hstore "eventserstellt"
-    t.hstore "artikelerstellt"
-    t.hstore "jobserstellt"
-    t.hstore "cfperstellt"
-    t.hstore "newslettererstellt"
-    t.hstore "zuletztangemeldet"
-    t.string "stackedinterests", default: [], array: true
-    t.index ["artikelerstellt"], name: "index_reports_on_artikelerstellt", using: :gin
-    t.index ["cfperstellt"], name: "index_reports_on_cfperstellt", using: :gin
-    t.index ["eventserstellt"], name: "index_reports_on_eventserstellt", using: :gin
     t.index ["general"], name: "index_reports_on_general", using: :gin
     t.index ["interests"], name: "index_reports_on_interests", using: :gin
-    t.index ["jobserstellt"], name: "index_reports_on_jobserstellt", using: :gin
-    t.index ["kommentareerstellt"], name: "index_reports_on_kommentareerstellt", using: :gin
-    t.index ["newslettererstellt"], name: "index_reports_on_newslettererstellt", using: :gin
     t.index ["preferences"], name: "index_reports_on_preferences", using: :gin
-    t.index ["profileerstellt"], name: "index_reports_on_profileerstellt", using: :gin
     t.index ["stats"], name: "index_reports_on_stats", using: :gin
-    t.index ["zuletztangemeldet"], name: "index_reports_on_zuletztangemeldet", using: :gin
   end
 
   create_table "societies", id: :serial, force: :cascade do |t|

@@ -6,3 +6,4 @@
 ./philoanalyzer.sh "/home/sandro/Documents/philobackups/24-07-2017.dump"
 ./philoanalyzer.sh "/home/sandro/Documents/philobackups/25-07-2017.dump"
 ./philoanalyzer.sh "/home/sandro/Documents/philobackups/26-07-2017.dump"
+./philoanalyzer.sh "/home/sandro/Documents/philobackups/27-07-2017.dump"

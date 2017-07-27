@@ -1,26 +1,49 @@
 <br>
-<h1>Benutzerprofile erstellt (Mitglieder): <%= report.general["members"] %> Zeitraum: 1.1.2017 - 30.6.2017</h1>
-<%= line_chart report.profileerstellt %>
-
+<h1>Zeitraum: <%= report.startdate %> - <%= report.enddate %></h1>
 <br>
 
-<h1>Kommentare erstellt</h1>
+<h1>Benutzerprofile erstellt (Mitglieder): <%= report.profiletotal[report.enddate.to_s].to_i - report.profiletotal[report.startdate.to_s].to_i  %></h1>
+<%= line_chart report.profileerstellt %>
+<br>
+<h1>Benutzerprofile total</h1>
+<%= area_chart report.profiletotal  %>
+<br>
+<h1>Kommentare erstellt: <%= report.kommentaretotal[report.enddate.to_s].to_i - report.kommentaretotal[report.startdate.to_s].to_i  %></h1>
 <%= line_chart report.kommentareerstellt %>
-
-<h1>Events erstellt</h1>
+<br>
+<h1>Kommentare total</h1>
+<%= area_chart report.kommentaretotal  %>
+<br>
+<h1>Events erstellt: <%= report.eventstotal[report.enddate.to_s].to_i - report.eventstotal[report.startdate.to_s].to_i  %></h1>
 <%= line_chart report.eventserstellt %>
-
-<h1>Artikel erstellt</h1>
+<br>
+<h1>Events total</h1>
+<%= area_chart report.eventstotal  %>
+<br>
+<h1>Artikel erstellt: <%= report.artikeltotal[report.enddate.to_s].to_i - report.artikeltotal[report.startdate.to_s].to_i  %></h1>
 <%= line_chart report.artikelerstellt %>
-
-<h1>CfP erstellt</h1>
+<br>
+<h1>Artikel total</h1>
+<%= area_chart report.artikeltotal  %>
+<br>
+<h1>CfP erstellt: <%= report.cfptotal[report.enddate.to_s].to_i - report.cfptotal[report.startdate.to_s].to_i  %></h1>
 <%= line_chart report.cfperstellt %>
-
-<h1>Jobs erstellt</h1>
+<br>
+<h1>CfP total</h1>
+<%= area_chart report.cfptotal  %>
+<br>
+<h1>Jobs erstellt: <%= report.jobstotal[report.enddate.to_s].to_i - report.jobstotal[report.startdate.to_s].to_i  %></h1>
 <%= line_chart report.jobserstellt %>
-
-<h1>Newsletter bezogen</h1>
+<br>
+<h1>Jobs total</h1>
+<%= area_chart report.jobstotal  %>
+<br>
+<h1>Newsletter bezogen: <%= report.newslettertotal[report.enddate.to_s].to_i - report.newslettertotal[report.startdate.to_s].to_i  %></h1>
 <%= line_chart report.newslettererstellt %>
+<br>
+<h1>Newsletter total</h1>
+<%= area_chart report.newslettertotal  %>
+<br>
 
 <h1>Newsletter aktiv</h1>
 <%= column_chart({"Aktiv" => report.general["newsletteraktiv"] , "Total" => report.general["newslettertotal"]}) %>

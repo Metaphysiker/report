@@ -135,7 +135,12 @@ else
 
   echo $STR
 
+#normal Report
 echo "Command.new.create(date: Date.parse('$STR'))" | rails c
+
+#special Reports
+#First half year
+echo "Command.new.specialcreate(Date.parse('$STR'), Date.parse('01-01-2017', Date.parse('30-06-2017')" | rails c
 
 fi
 

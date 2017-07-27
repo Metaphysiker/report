@@ -1,15 +1,15 @@
 <% report.universities.each do |uni| %>
     <h2><%= uni.title %>:</h2>
     <table>
-      <% uni.information.each do |key, value| %>
           <tr>
             <td>
-              <%= key %>
+              <% uni.information.each do |key, value| %>
+                <%= key %>: <%= value %> <br>
+              <% end %>
             </td>
             <td>
-              <%= value %>
+              <%= pie_chart uni.information %>
             </td>
           </tr>
-      <% end %>
     </table>
 <% end %>
