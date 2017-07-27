@@ -3,16 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="179c63c5-0055-467a-80a6-76d2037d6fd3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/analyzeallbackups.sh" afterPath="$PROJECT_DIR$/analyzeallbackups.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/command.rb" afterPath="$PROJECT_DIR$/app/models/command.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_piecharts.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_piecharts.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_unis.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" afterPath="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/listofdumpscommands.sh" afterPath="$PROJECT_DIR$/listofdumpscommands.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/philoanalyzer.sh" afterPath="$PROJECT_DIR$/philoanalyzer.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -32,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="command.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="command.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/command.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -85,13 +78,9 @@
       <file leaf-file-name="_unis.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reports/_unis.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1501146971772" expanded="true" signature="81:369" ph="..." />
-                <marker date="1501146971772" expanded="true" signature="96:356" ph="..." />
-                <marker date="1501146971772" expanded="true" signature="113:258" ph="..." />
-              </folding>
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,11 +118,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="philoanalyzer.sh" pinned="false" current-in-tab="true">
+      <file leaf-file-name="philoanalyzer.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/philoanalyzer.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+            <state relative-caret-position="454">
+              <caret line="142" column="76" lean-forward="false" selection-start-line="142" selection-start-column="76" selection-end-line="142" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -209,11 +198,11 @@
         <option value="$PROJECT_DIR$/app/views/reports/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
         <option value="$PROJECT_DIR$/analyzeallbackups.sh" />
         <option value="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
-        <option value="$PROJECT_DIR$/app/models/command.rb" />
         <option value="$PROJECT_DIR$/philoanalyzer.sh" />
+        <option value="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/command.rb" />
       </list>
     </option>
   </component>
@@ -779,12 +768,12 @@
       <workItem from="1500068486239" duration="31647000" />
       <workItem from="1500550693481" duration="65214000" />
       <workItem from="1500917752774" duration="142000" />
-      <workItem from="1500918181849" duration="82712000" />
+      <workItem from="1500918181849" duration="85945000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179715000" />
+    <option name="totallyTimeSpent" value="182948000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1188,18 +1177,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/_unis.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1501146971772" expanded="true" signature="81:369" ph="..." />
-            <marker date="1501146971772" expanded="true" signature="96:356" ph="..." />
-            <marker date="1501146971772" expanded="true" signature="113:258" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analyzeallbackups.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1216,6 +1193,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reports/_unis.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/philoanalyzer.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="142" column="76" lean-forward="false" selection-start-line="142" selection-start-column="76" selection-end-line="142" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/listofdumpscommands.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1226,16 +1219,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/command.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/philoanalyzer.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="139" column="0" lean-forward="true" selection-start-line="139" selection-start-column="0" selection-end-line="139" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>

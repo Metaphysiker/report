@@ -8,7 +8,7 @@ class Command
   def specialcreate(date, startdate, enddate)
     @report = Report.create(date: date)
     special(@report, startdate, enddate)
-    unis(@report)
+    unisspecial(@report, enddate)
   end
 
   def specificdates
@@ -147,6 +147,7 @@ class Command
   def special(report, startdate=nil, enddate=nil)
 
     report.specialreport = true
+    report.whichbackup = report.date
 
     startdate = startdate
     enddate = enddate
@@ -159,15 +160,15 @@ class Command
       enddate = AlchemyUser.order('created_at asc').where.not(created_at: nil).last.created_at.to_date
     end
 
-    allprofiles = Profile.all.count
-    members = AlchemyUser.where(alchemy_roles: "member").count
-    institutions = AlchemyUser.where(alchemy_roles: "institution").count
-    public = Profile.where(public: true).count
-    private = Profile.where(public: false).count
-    allgemein = Profile.where(level: 0).count
-    expert = Profile.where(level: 1).count
-    belongtouni = Profile.where.not(institutional_affiliation: "").count
-    belongtonouni = Profile.where(institutional_affiliation: "").count
+    allprofiles = Profile.where("created_at < ?", enddate).count
+    members = AlchemyUser.where(alchemy_roles: "member").where("created_at < ?", enddate).count
+    institutions = AlchemyUser.where(alchemy_roles: "institution").where("created_at < ?", enddate).count
+    public = Profile.where(public: true).where("created_at < ?", enddate).count
+    private = Profile.where(public: false).where("created_at < ?", enddate).count
+    allgemein = Profile.where(level: 0).where("created_at < ?", enddate).count
+    expert = Profile.where(level: 1).where("created_at < ?", enddate).count
+    belongtouni = Profile.where.not(institutional_affiliation: "").where("created_at < ?", enddate).count
+    belongtonouni = Profile.where(institutional_affiliation: "").where("created_at < ?", enddate).count
 
     report.startdate = startdate
     report.enddate = enddate
@@ -255,7 +256,40 @@ class Command
     end
 
     end
+  end
+
+  def unisspecial(report, enddate)
+    all_unis = Profile.all.distinct.pluck(:institutional_affiliation)
+
+    all_unis.delete("")
+
+    all_unis.each do |uni|
+
+      university = report.universities.create(title: uni)
+
+      hash = {}
+
+      types = Profile.where(institutional_affiliation: uni).pluck(:type_of_affiliation)
+
+      types.each do |type|
+
+        name = type
+        results = Profile.where(institutional_affiliation: uni).where(type_of_affiliation: type).where("created_at < ?", enddate).count
+
+        if type.nil? || type.empty?
+          name = "institution"
+        end
+
+        hash[name] = results
+
+        university.information = hash
+
+        university.save
+
+      end
+
     end
+  end
 
   def count_chosen_topics(scope = nil)
     all_topics = Topic.all.distinct.pluck(:name)
