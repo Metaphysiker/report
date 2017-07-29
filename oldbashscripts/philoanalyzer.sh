@@ -2,8 +2,6 @@
 # This program analyzes and philosophie.ch-databases
 
 # deletes all previous data, except reports and universities
-
-
 psql reports_development << EOF
 DELETE FROM alchemy_essence_dates;
 DELETE FROM alchemy_attachments;

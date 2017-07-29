@@ -1,10 +1,22 @@
 #!/usr/bin/env bash
 
-rails db:drop
-rails db:setup
+#First Half Year with most closest backup
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/15-07-2017.dump.bz2"
 
-./listofdumpscommands.sh
+echo "Command.new.specialcreate(Date.parse('15-07-2017'), Date.parse('01-01-2017'), Date.parse('30-06-2017'))" | rails c
 
+#Latest report for all time, with newest backup
+LATESTDUMP=$(./getlatestdump.sh)
+echo $LATESTDUMP
+
+DATE=$(echo $LATESTDUMP | cut -b 39-48)
+
+
+./loadsingledump.sh $LATESTDUMP
+
+echo "Command.new.specialcreate(Date.parse('$DATE'), Date.parse('01-10-2016'), Date.parse('$DATE'))" | rails c
+
+# deletes all previous data, except reports and universities
 psql reports_development << EOF
 DELETE FROM alchemy_essence_dates;
 DELETE FROM alchemy_attachments;
@@ -44,7 +56,7 @@ EOF
 
 heroku pg:reset --confirm evening-ravine-89617
 
+#push to heroku
 heroku pg:push reports_development DATABASE_URL --app evening-ravine-89617
 
 heroku open
-
