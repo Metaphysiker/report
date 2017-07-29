@@ -4,6 +4,12 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
 
+  def auswahl
+    @firsthalfyear = Report.find_by_name("firsthalfyear")
+    @secondhalfyear =  Report.find_by_name("secondhalfyear")
+    @alltime = Report.find_by_name("alltime")
+  end
+
   def firsthalfyear
     @report = Report.first
   end

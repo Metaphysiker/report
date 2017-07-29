@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :reports
   get 'welcome/index'
 
+  get '/auswahl/', to: 'reports#auswahl'
   get '/general/', to: 'reports#general'
   get '/firsthalfyear/', to: 'reports#firsthalfyear'
 
