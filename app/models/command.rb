@@ -5,16 +5,14 @@ class Command
     unis(@report)
   end
 
-  def specialcreate(date, startdate, enddate)
-    @report = Report.create(date: date)
+  def specialcreate(name, date, startdate, enddate)
+    @report = Report.create(date: date, name: name)
     special(@report, startdate, enddate)
     unisspecial(@report, enddate)
     societyspecial(@report, enddate)
   end
 
-  def special(name, report, startdate=nil, enddate=nil)
-
-    report.name = name
+  def special(report, startdate=nil, enddate=nil)
     report.specialreport = true
     report.whichbackup = report.date
 
