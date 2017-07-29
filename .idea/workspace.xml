@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="179c63c5-0055-467a-80a6-76d2037d6fd3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/createspecialreports.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getlatestdump.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loadandanalyzeallreports.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loadnewdump.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/loadsingledump.sh" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/analyzeallbackups.sh" afterPath="$PROJECT_DIR$/oldbashscripts/analyzeallbackups.sh" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/listofdumpscommands.sh" afterPath="$PROJECT_DIR$/oldbashscripts/listofdumpscommands.sh" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/philoanalyzer.sh" afterPath="$PROJECT_DIR$/oldbashscripts/philoanalyzer.sh" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tester.sh" afterPath="$PROJECT_DIR$/oldbashscripts/tester.sh" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/alchemy_essence_topics_topic.rb" afterPath="$PROJECT_DIR$/app/models/alchemy_essence_topics_topic.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/command.rb" afterPath="$PROJECT_DIR$/app/models/command.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createspecialreports.sh" afterPath="$PROJECT_DIR$/createspecialreports.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" afterPath="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -35,18 +31,8 @@
       <file leaf-file-name="philoanalyzer.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oldbashscripts/philoanalyzer.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="128" selection-end-column="74" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="listofdumpscommands.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oldbashscripts/listofdumpscommands.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="70" lean-forward="false" selection-start-line="2" selection-start-column="70" selection-end-line="2" selection-end-column="70" />
+            <state relative-caret-position="304">
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -62,21 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadandanalyzeallreports.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loadandanalyzeallreports.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="0" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_linecharts.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_linecharts.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reports/_linecharts.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+            <state relative-caret-position="240">
+              <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -85,8 +61,8 @@
       <file leaf-file-name="command.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/command.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+            <state relative-caret-position="225">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -105,8 +81,38 @@
       <file leaf-file-name="createspecialreports.sh" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/createspecialreports.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-41">
-              <caret line="5" column="109" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="109" />
+            <state relative-caret-position="210">
+              <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/reports/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="20170725193849_add_profileerstellt_to_reports.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -117,16 +123,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="75">
               <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="analyzeallbackups.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oldbashscripts/analyzeallbackups.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="48" column="11" lean-forward="false" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -177,7 +173,6 @@
         <option value="$PROJECT_DIR$/config/initializers/secret_key.rb" />
         <option value="$PROJECT_DIR$/tester.sh" />
         <option value="$PROJECT_DIR$/db/migrate/20170720221529_add_general_to_reports.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/reports/firsthalfyear.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reports/general.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20170725132903_add_stats_to_reports.rb" />
@@ -185,7 +180,6 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/philoanalyzercopy.sh" />
         <option value="$PROJECT_DIR$/listofdumpscommands.sh" />
-        <option value="$PROJECT_DIR$/app/views/reports/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
         <option value="$PROJECT_DIR$/analyzeallbackups.sh" />
         <option value="$PROJECT_DIR$/philoanalyzer.sh" />
@@ -195,8 +189,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20170727124219_create_philosophical_societies.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170727124408_add_information_to_philosophical_societies.rb" />
         <option value="$PROJECT_DIR$/app/models/society.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
-        <option value="$PROJECT_DIR$/app/models/command.rb" />
         <option value="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reports/_newsletter.html.erb" />
         <option value="$PROJECT_DIR$/app/models/alchemy_elements_alchemy_page.rb" />
@@ -209,8 +201,12 @@
         <option value="$PROJECT_DIR$/loadsingledump.sh" />
         <option value="$PROJECT_DIR$/lister.sh" />
         <option value="$PROJECT_DIR$/getlatestdump.sh" />
-        <option value="$PROJECT_DIR$/createspecialreports.sh" />
         <option value="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
+        <option value="$PROJECT_DIR$/app/models/command.rb" />
+        <option value="$PROJECT_DIR$/createspecialreports.sh" />
+        <option value="$PROJECT_DIR$/app/views/reports/index.html.erb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
       </list>
     </option>
   </component>
@@ -221,8 +217,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="698" />
-    <option name="y" value="233" />
+    <option name="x" value="545" />
+    <option name="y" value="52" />
     <option name="width" value="1542" />
     <option name="height" value="851" />
   </component>
@@ -252,20 +248,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="reports" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="reports" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oldbashscripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -764,12 +746,12 @@
       <workItem from="1500550693481" duration="65214000" />
       <workItem from="1500917752774" duration="142000" />
       <workItem from="1500918181849" duration="103326000" />
-      <workItem from="1501243294963" duration="12982000" />
+      <workItem from="1501243294963" duration="20883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="213311000" />
+    <option name="totallyTimeSpent" value="221212000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -781,7 +763,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="698" y="233" width="1542" height="851" extended-state="0" />
+    <frame x="545" y="52" width="1542" height="851" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1767473" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -908,14 +890,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="3" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reports/firsthalfyear.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -979,13 +953,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
-          <caret line="23" column="0" lean-forward="true" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/reports_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2696">
@@ -1031,14 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="47" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1147,26 +1106,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oldbashscripts/philoanalyzer.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="125" column="0" lean-forward="false" selection-start-line="125" selection-start-column="0" selection-end-line="128" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/loadnewdump.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/command.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1179,18 +1122,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/createspecialreports.sh">
+    <entry file="file://$PROJECT_DIR$/app/views/reports/_linecharts.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-41">
-          <caret line="5" column="109" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="109" />
+        <state relative-caret-position="240">
+          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/_linecharts.html.erb">
+    <entry file="file://$PROJECT_DIR$/oldbashscripts/philoanalyzer.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="38" column="14" lean-forward="true" selection-start-line="38" selection-start-column="14" selection-end-line="38" selection-end-column="14" />
+        <state relative-caret-position="304">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="39" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/command.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/createspecialreports.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reports/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="50" lean-forward="false" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>

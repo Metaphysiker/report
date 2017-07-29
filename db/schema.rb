@@ -429,6 +429,7 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.hstore "general"
     t.hstore "interests"
     t.hstore "stats"
+    t.string "name"
     t.boolean "specialreport", default: false
     t.date "whichbackup"
     t.date "startdate"

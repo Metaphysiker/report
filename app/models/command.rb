@@ -12,8 +12,9 @@ class Command
     societyspecial(@report, enddate)
   end
 
-  def special(report, startdate=nil, enddate=nil)
+  def special(name, report, startdate=nil, enddate=nil)
 
+    report.name = name
     report.specialreport = true
     report.whichbackup = report.date
 
@@ -40,19 +41,26 @@ class Command
 
     report.startdate = startdate
     report.enddate = enddate
-    report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at, range: startdate..enddate).count
+    #report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at, range: startdate..enddate).count
+    report.profileerstellt = weekcalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
     report.profiletotal = totalareacalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
-    report.kommentareerstellt = Comment.group_by_week(:created_at, range: startdate..enddate).count
+    #report.kommentareerstellt = Comment.group_by_week(:created_at, range: startdate..enddate).count
+    report.kommentareerstellt = weekcalculator(Comment.all, startdate, enddate)
     report.kommentaretotal = totalareacalculator(Comment.all, startdate, enddate)
-    report.eventserstellt =  AlchemyPage.where(page_layout: "event").group_by_week(:created_at, range: startdate..enddate).count
+    #report.eventserstellt =  AlchemyPage.where(page_layout: "event").group_by_week(:created_at, range: startdate..enddate).count
+    report.eventserstellt = weekcalculator(AlchemyPage.where(page_layout: "event"), startdate, enddate)
     report.eventstotal = totalareacalculator(AlchemyPage.where(page_layout: "event"), startdate, enddate)
-    report.artikelerstellt = AlchemyPage.where(page_layout: "article").group_by_week(:created_at, range: startdate..enddate).count
+    #report.artikelerstellt = AlchemyPage.where(page_layout: "article").group_by_week(:created_at, range: startdate..enddate).count
+    report.artikelerstellt = weekcalculator(AlchemyPage.where(page_layout: "article"), startdate, enddate)
     report.artikeltotal = totalareacalculator(AlchemyPage.where(page_layout: "article"), startdate, enddate)
-    report.cfperstellt = AlchemyPage.where(page_layout: "call_for_papers").group_by_week(:created_at, range: startdate..enddate).count
+   # report.cfperstellt = AlchemyPage.where(page_layout: "call_for_papers").group_by_week(:created_at, range: startdate..enddate).count
+    report.cfperstellt = weekcalculator(AlchemyPage.where(page_layout: "call_for_papers"), startdate, enddate)
     report.cfptotal = totalareacalculator(AlchemyPage.where(page_layout: "call_for_papers"), startdate, enddate)
-    report.jobserstellt = AlchemyPage.where(page_layout: "job").group_by_week(:created_at, range: startdate..enddate).count
+   # report.jobserstellt = AlchemyPage.where(page_layout: "job").group_by_week(:created_at, range: startdate..enddate).count
+    report.jobserstellt = weekcalculator(AlchemyPage.where(page_layout: "job"),startdate, enddate)
     report.jobstotal = totalareacalculator(AlchemyPage.where(page_layout: "job"),startdate, enddate)
-    report.newslettererstellt = Subscription.group_by_week(:created_at, range: startdate..enddate).count
+   # report.newslettererstellt = Subscription.group_by_week(:created_at, range: startdate..enddate).count
+    report.newslettererstellt = weekcalculator(Subscription.all, startdate, enddate)
     report.newslettertotal = totalareacalculator(Subscription.all, startdate, enddate)
     report.zuletztangemeldet = AlchemyUser.where(alchemy_roles: "member").group_by_month(:last_sign_in_at, range: startdate..enddate).count
 
@@ -218,7 +226,8 @@ class Command
 
     report.startdate = startdate
     report.enddate = enddate
-    report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at, range: startdate..enddate).count
+    #report.profileerstellt = AlchemyUser.where(alchemy_roles: "member").group_by_week(:created_at, range: startdate..enddate).count
+    report.profileerstellt =
     report.profiletotal = totalareacalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
     report.kommentareerstellt = Comment.group_by_week(:created_at, range: startdate..enddate).count
     report.kommentaretotal = totalareacalculator(Comment.all, startdate, enddate)
@@ -407,17 +416,50 @@ class Command
       enddate = query.order('created_at asc').where.not(created_at: nil).last.created_at
     end
 
-    puts "hellooooo"
-    puts startdate.inspect
-    puts enddate.inspect
+    point_in_time = startdate
+
+    while point_in_time <= enddate
+      hash[point_in_time] = query.where("created_at < ?", point_in_time).count
+
+      if (point_in_time + 7.days) > enddate
+        hash[enddate] = query.where("created_at < ?", enddate).count
+        break
+      else
+        point_in_time = point_in_time  + 7.days
+      end
+
+    end
+
+    return hash
+
+  end
+
+  def weekcalculator(query, startdate=nil, enddate=nil)
+
+    hash = {}
+
+    startdate = startdate
+    enddate = enddate
+
+    if startdate.nil?
+      startdate = query.order('created_at asc').where.not(created_at: nil).first.created_at
+    end
+
+    if enddate.nil?
+      enddate = query.order('created_at asc').where.not(created_at: nil).last.created_at
+    end
 
     point_in_time = startdate
 
-    while point_in_time < enddate
-      hash[point_in_time] = query.where("created_at < ?", point_in_time).count
+    hash[point_in_time] = query.where("created_at < ?", point_in_time).count - query.where("created_at < ?", point_in_time - 7.days).count
+
+    point_in_time = point_in_time  + 7.days
+
+    while point_in_time <= enddate
+      hash[point_in_time] = query.where("created_at < ?", point_in_time + 7.days).count - query.where("created_at < ?", point_in_time).count
 
       if ((point_in_time + 7.days) > enddate) && point_in_time != enddate
-        hash[enddate] = query.where("created_at < ?", enddate).count
+        hash[enddate] = query.where("created_at < ?", enddate).count - query.where("created_at < ?", point_in_time).count
         break
       else
         point_in_time = point_in_time  + 7.days

@@ -13,7 +13,7 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.date %></td>
+        <td><%= report.date %>, <%= report.name %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>
         <td><%= link_to 'Destroy', report, method: :delete, data: { confirm: 'Are you sure?' } %></td>

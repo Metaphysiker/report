@@ -14,7 +14,7 @@
 <h2>Events erstellt: <%= report.eventstotal.to_a.last[1].to_i - report.eventstotal[report.startdate.to_s].to_i  %></h2>
 <%= line_chart report.eventserstellt %>
 <br>
-<h>Events total</h>
+<h1>Events total</h1>
 <%= area_chart report.eventstotal  %>
 <br>
 <h2>Artikel erstellt: <%= report.artikeltotal.to_a.last[1].to_i - report.artikeltotal[report.startdate.to_s].to_i  %></h2>
