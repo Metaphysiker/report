@@ -4,3 +4,9 @@
                   {name: "Experten", data: report.stackedinterests[0]},
                   {name: "Allgemein", data: report.stackedinterests[1]}
               ], height: "1500px", stacked: true %>
+<br>
+<h1>Artikel nach Themen</h1>
+<%= bar_chart [
+                  {name: "Artikel", data: report.articleanalysis},
+                  {name: "Events", data: report.eventanalysis}
+              ], height: "1500px", stacked: true %>

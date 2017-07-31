@@ -80,8 +80,35 @@ class Command
     }
 
     report.stackedinterests = count_chosen_topics_stacked("member")
+    report.articleanalysis = pageanalysis(report, "article", enddate)
+    report.eventanalysis = pageanalysis(report, "event", enddate)
     report.save!
 
+  end
+
+  def pageanalysis(report, type, enddate)
+    all_topics = Topic.all.distinct.pluck(:name)
+    hash_of_all_topics= {}
+    all_topics.each{|a| hash_of_all_topics[a] = 0}
+
+    AlchemyPage.where(page_layout: type).where("created_at < ?", enddate).each do |article|
+
+     element = AlchemyElement.where(page_id: article.id).where(name: "intro")
+
+     content = AlchemyContent.where(element_id: element.last.id).where(essence_type: "Alchemy::EssenceTopic")
+
+     topics_ids = AlchemyEssenceTopicsTopic.where(alchemy_essence_topic_id: content.last.essence_id)
+
+
+     topics_ids.each do |topic|
+      topico = Topic.find(topic.topic_id)
+      hash_of_all_topics[topico.name] = hash_of_all_topics[topico.name] + 1
+     end
+    end
+
+    #puts hash_of_all_topics.sort_by{|k,v| v}
+    return hash_of_all_topics.sort_by{|k,v| v}
+    #report.articleanalysis = hash_of_all_topics
   end
 
 

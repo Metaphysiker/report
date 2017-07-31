@@ -55,5 +55,5 @@ psql reports_development < /home/sandro/Documents/philochbackups/latest.dump
 rm /home/sandro/Documents/philochbackups/latest.dump
 
 # insert database to reports_development
-pg_dump philosophiech001 | psql reports_development
+pg_dump -a philosophiech001 | psql reports_development
 
