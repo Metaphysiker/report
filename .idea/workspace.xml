@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="179c63c5-0055-467a-80a6-76d2037d6fd3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_interests.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_interests.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_unis.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -72,17 +72,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_unis.html.erb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="_unis.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/reports/_unis.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+            <state relative-caret-position="165">
+              <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_interests.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_interests.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/reports/_interests.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -177,7 +177,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20170727124219_create_philosophical_societies.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170727124408_add_information_to_philosophical_societies.rb" />
         <option value="$PROJECT_DIR$/app/models/society.rb" />
-        <option value="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
         <option value="$PROJECT_DIR$/app/views/reports/_newsletter.html.erb" />
         <option value="$PROJECT_DIR$/app/models/alchemy_elements_alchemy_page.rb" />
         <option value="$PROJECT_DIR$/app/models/alchemy_essence_topics_topic.rb" />
@@ -202,6 +201,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
         <option value="$PROJECT_DIR$/app/models/command.rb" />
         <option value="$PROJECT_DIR$/app/views/reports/_interests.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
       </list>
     </option>
   </component>
@@ -212,8 +212,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-38" />
-    <option name="y" value="86" />
+    <option name="x" value="807" />
+    <option name="y" value="67" />
     <option name="width" value="1423" />
     <option name="height" value="931" />
   </component>
@@ -764,12 +764,12 @@
       <workItem from="1500917752774" duration="142000" />
       <workItem from="1500918181849" duration="103326000" />
       <workItem from="1501243294963" duration="30549000" />
-      <workItem from="1501369058389" duration="23962000" />
+      <workItem from="1501369058389" duration="25439000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254840000" />
+    <option name="totallyTimeSpent" value="256317000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -781,7 +781,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-38" y="86" width="1423" height="931" extended-state="0" />
+    <frame x="807" y="67" width="1423" height="931" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2987582" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1155,14 +1155,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/_unis.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="51" lean-forward="false" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1183,6 +1175,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reports/_unis.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="52" lean-forward="false" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
           <folding />
         </state>
       </provider>
