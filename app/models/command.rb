@@ -36,6 +36,8 @@ class Command
     expert = Profile.where(level: 1).where("created_at < ?", enddate).count
     belongtouni = Profile.where.not(institutional_affiliation: "").where("created_at < ?", enddate).count
     belongtonouni = Profile.where(institutional_affiliation: "").where("created_at < ?", enddate).count
+    german = AlchemyUser.where(language: "de").where("created_at < ?", enddate).count
+    french = AlchemyUser.where(language: "fr").where("created_at < ?", enddate).count
 
     report.startdate = startdate
     report.enddate = enddate
@@ -75,6 +77,8 @@ class Command
         expert: expert,
         belongtouni: belongtouni,
         belongtonouni: belongtonouni,
+        german: german,
+        french: french,
         newsletteraktiv: newsletteraktiv,
         newslettertotal: newslettertotal
     }
@@ -143,9 +147,11 @@ class Command
 
     all_unis.delete("")
 
+    #"{all_unis}".map! {|item| item.humanize.downcase}
+
     all_unis.each do |uni|
 
-      university = report.universities.create(title: uni)
+      university = report.universities.create(title: uni.humanize.downcase)
 
       hash = {}
 
@@ -335,6 +341,8 @@ class Command
   def unis(report)
     all_unis = Profile.all.distinct.pluck(:institutional_affiliation)
 
+    all_unis.map! {|item| item.humanize.downcase}
+
     all_unis.delete("")
 
     all_unis.each do |uni|
@@ -404,25 +412,18 @@ class Command
         "Administrative Infos, Humor und Zitate" => 0
     }
 
-    puts hash_of_topic_groups
-
     Profile.where(level:0).each do |profile|
+      next if AlchemyUser.find(profile.id).alchemy_roles != "member"
       next if profile.topics.empty?
+
       hash_of_topic_groups.each do |key, value|
-        final_hash_of_topic_groups[key] += 1
-
-        topics = Topic.where(group: value).pluck(:name)
-
-        topics.each do |topic|
-          if profile.topics.distinct.where(name: topic).empty? == true
-            final_hash_of_topic_groups[key] -= 1
-            break
-          end
+        if Topic.where(group: value).count == profile.topics.where(group: value).count
+          final_hash_of_topic_groups[key] += 1
         end
       end
+
     end
     return final_hash_of_topic_groups.sort {|a,b| a[1]<=>b[1]}.reverse
-
   end
 
   def count_chosen_topics_stacked(scope = nil)

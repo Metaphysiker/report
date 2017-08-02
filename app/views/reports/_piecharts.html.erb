@@ -14,5 +14,8 @@
     <td>
       <%= pie_chart({"Einer Uni zugehörig: #{report.general["belongtouni"]}" => report.general["belongtouni"], "Ohne Zugehörigkeit: #{report.general["belongtonouni"]}" => report.general["belongtonouni"]}, colors: ["yellow", "pink"]) %>
     </td>
+    <td>
+      <%= pie_chart({"Deutsch: #{report.general["german"]}" => report.general["german"], "Französisch: #{report.general["french"]}" => report.general["french"]}, colors: ["violet", "brown"]) %>
+    </td>
   </tr>
 </table>

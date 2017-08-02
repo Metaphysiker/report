@@ -4,11 +4,7 @@
     <list default="true" id="179c63c5-0055-467a-80a6-76d2037d6fd3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/command.rb" afterPath="$PROJECT_DIR$/app/models/command.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_interests.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_interests.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_unis.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_unis.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" afterPath="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/_piecharts.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/_piecharts.html.erb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -37,21 +33,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="alchemy_essence_topic.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/alchemy_essence_topic.rb">
+      <file leaf-file-name="command.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/command.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="command.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/command.rb">
+      <file leaf-file-name="_piecharts.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/reports/_piecharts.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="423" column="38" lean-forward="false" selection-start-line="423" selection-start-column="38" selection-end-line="423" selection-end-column="38" />
+            <state relative-caret-position="300">
+              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -144,6 +140,7 @@
       <find>logger</find>
       <find>listen</find>
       <find>alchemy_cells</find>
+      <find>stacked</find>
     </findStrings>
     <replaceStrings>
       <replace>pie_charts</replace>
@@ -177,7 +174,6 @@
         <option value="$PROJECT_DIR$/analyzeallbackups.sh" />
         <option value="$PROJECT_DIR$/philoanalyzer.sh" />
         <option value="$PROJECT_DIR$/app/views/reports/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/reports/_piecharts.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20170727123929_create_societies.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170727124219_create_philosophical_societies.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20170727124408_add_information_to_philosophical_societies.rb" />
@@ -206,6 +202,7 @@
         <option value="$PROJECT_DIR$/app/views/reports/_linecharts.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20170725193849_add_profileerstellt_to_reports.rb" />
         <option value="$PROJECT_DIR$/app/views/reports/_interests.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/reports/_piecharts.html.erb" />
         <option value="$PROJECT_DIR$/app/models/command.rb" />
       </list>
     </option>
@@ -217,9 +214,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="175" />
-    <option name="y" value="54" />
-    <option name="width" value="1641" />
+    <option name="x" value="679" />
+    <option name="y" value="97" />
+    <option name="width" value="1521" />
     <option name="height" value="931" />
   </component>
   <component name="ProjectView">
@@ -771,12 +768,12 @@
       <workItem from="1501243294963" duration="30549000" />
       <workItem from="1501369058389" duration="26164000" />
       <workItem from="1501542472893" duration="1379000" />
-      <workItem from="1501685178125" duration="13915000" />
+      <workItem from="1501685178125" duration="20975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="272336000" />
+    <option name="totallyTimeSpent" value="279396000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -788,10 +785,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="175" y="54" width="1641" height="931" extended-state="0" />
+    <frame x="679" y="97" width="1521" height="931" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2652804" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28698024" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -930,13 +927,6 @@
         <state relative-caret-position="45">
           <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/reports/_piecharts.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -1183,10 +1173,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/reports/_piecharts.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/command.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="423" column="38" lean-forward="false" selection-start-line="423" selection-start-column="38" selection-end-line="423" selection-end-column="38" />
+        <state relative-caret-position="195">
+          <caret line="39" column="47" lean-forward="false" selection-start-line="39" selection-start-column="47" selection-end-line="39" selection-end-column="47" />
           <folding />
         </state>
       </provider>
