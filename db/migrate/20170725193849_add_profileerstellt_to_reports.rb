@@ -9,6 +9,7 @@ class AddProfileerstelltToReports < ActiveRecord::Migration[5.1]
     add_column :reports, :startdate, :date
     add_column :reports, :enddate, :date
 
+    add_column :reports, :allgemeingroupinterests, :string, array: true, default: []
     add_column :reports, :articleanalysis, :string, array: true, default: []
     add_column :reports, :eventanalysis, :string, array: true, default: []
 

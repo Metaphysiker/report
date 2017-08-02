@@ -1,46 +1,60 @@
 <br>
 <h2>Benutzerprofile erstellt (Mitglieder): <%= report.profiletotal.to_a.last[1].to_i - report.profiletotal.first[1].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.profileerstellt %>
 <br>
-<h2>Benutzerprofile total</h2>
+<h2>Benutzerprofile total: <%= report.profiletotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.profiletotal  %>
 <br>
 <h2>Kommentare erstellt: <%= report.kommentaretotal.to_a.last[1].to_i - report.kommentaretotal[report.startdate.to_s].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.kommentareerstellt %>
 <br>
-<h2>Kommentare total</h2>
+<h2>Kommentare total: <%= report.kommentaretotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.kommentaretotal  %>
 <br>
 <h2>Events erstellt: <%= report.eventstotal.to_a.last[1].to_i - report.eventstotal[report.startdate.to_s].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.eventserstellt %>
 <br>
-<h1>Events total</h1>
+<h2>Events total: <%= report.eventstotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.eventstotal  %>
 <br>
 <h2>Artikel erstellt: <%= report.artikeltotal.to_a.last[1].to_i - report.artikeltotal[report.startdate.to_s].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.artikelerstellt %>
 <br>
-<h2>Artikel total</h2>
+<h2>Artikel total: <%= report.artikeltotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.artikeltotal  %>
 <br>
 <h2>CfP erstellt: <%= report.cfptotal.to_a.last[1].to_i - report.cfptotal[report.startdate.to_s].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.cfperstellt %>
 <br>
-<h2>CfP total</h2>
+<h2>CfP total: <%= report.cfptotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.cfptotal  %>
 <br>
 <h2>Jobs erstellt: <%= report.jobstotal.to_a.last[1].to_i - report.jobstotal[report.startdate.to_s].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.jobserstellt %>
 <br>
-<h2>Jobs total</h2>
+<h2>Jobs total: <%= report.jobstotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.jobstotal  %>
 <br>
 <h2>Newsletter bezogen: <%= report.newslettertotal.to_a.last[1].to_i - report.newslettertotal[report.startdate.to_s].to_i  %></h2>
+<h3>Fluktuation</h3>
 <%= line_chart report.newslettererstellt %>
 <br>
-<h2>Newsletter total</h2>
+<h2>Newsletter total: <%= report.newslettertotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
 <%= area_chart report.newslettertotal  %>
 <br>
 
 <h2>Newsletter aktiv</h2>
-<%= column_chart({"Aktiv" => report.general["newsletteraktiv"] , "Total" => report.general["newslettertotal"]}) %>
+<%= column_chart({"Aktiv" => report.general["newsletteraktiv"] , "Total" => report.general["newslettertotal"]}, label: "Value") %>

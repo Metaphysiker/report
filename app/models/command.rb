@@ -79,6 +79,7 @@ class Command
         newslettertotal: newslettertotal
     }
 
+    report.allgemeingroupinterests = count_allgemein_topic_groups
     report.stackedinterests = count_chosen_topics_stacked("member")
     report.articleanalysis = articleanalysis(enddate)
     report.eventanalysis = eventanalysis(enddate)
@@ -381,6 +382,47 @@ class Command
     end
 
     return hash_of_all_topics.sort {|a,b| a[1]<=>b[1]}.reverse
+  end
+
+  def count_allgemein_topic_groups
+
+    hash_of_topic_groups = {
+      "Logik, Wissen, Wissenschaft" => 0,
+      "Menschsein und Sprache" => 1,
+      "Ethik, Gesellschaft, Kultur" => 2,
+      "Geschichte der Philosophie" => 3,
+      "Ästhetik" => 4,
+      "Administrative Infos, Humor und Zitate" => 5
+    }
+
+    final_hash_of_topic_groups = {
+        "Logik, Wissen, Wissenschaft" => 0,
+        "Menschsein und Sprache" => 0,
+        "Ethik, Gesellschaft, Kultur" => 0,
+        "Geschichte der Philosophie" => 0,
+        "Ästhetik" => 0,
+        "Administrative Infos, Humor und Zitate" => 0
+    }
+
+    puts hash_of_topic_groups
+
+    Profile.where(level:0).each do |profile|
+      next if profile.topics.empty?
+      hash_of_topic_groups.each do |key, value|
+        final_hash_of_topic_groups[key] += 1
+
+        topics = Topic.where(group: value).pluck(:name)
+
+        topics.each do |topic|
+          if profile.topics.distinct.where(name: topic).empty? == true
+            final_hash_of_topic_groups[key] -= 1
+            break
+          end
+        end
+      end
+    end
+    return final_hash_of_topic_groups.sort {|a,b| a[1]<=>b[1]}.reverse
+
   end
 
   def count_chosen_topics_stacked(scope = nil)

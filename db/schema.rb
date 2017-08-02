@@ -434,6 +434,7 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.date "whichbackup"
     t.date "startdate"
     t.date "enddate"
+    t.string "allgemeingroupinterests", default: [], array: true
     t.string "articleanalysis", default: [], array: true
     t.string "eventanalysis", default: [], array: true
     t.hstore "societies"
