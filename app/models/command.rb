@@ -38,6 +38,7 @@ class Command
     belongtonouni = Profile.where(institutional_affiliation: "").where("created_at < ?", enddate).count
     german = AlchemyUser.where(language: "de").where("created_at < ?", enddate).count
     french = AlchemyUser.where(language: "fr").where("created_at < ?", enddate).count
+    interested_in_education = Profile.where(interested_in_education: "yes").where("created_at < ?", enddate).count
 
     report.startdate = startdate
     report.enddate = enddate
@@ -63,6 +64,8 @@ class Command
     report.newslettererstellt = weekcalculator(Subscription.all, startdate, enddate)
     report.newslettertotal = totalareacalculator(Subscription.all, startdate, enddate)
     report.zuletztangemeldet = AlchemyUser.where(alchemy_roles: "member").group_by_month(:last_sign_in_at, range: startdate..enddate).count
+    report.lehrpersonentotal = totalareacalculator(Profile.where.not(teacher_at_institution: ""), startdate, enddate)
+    report.interestedineducationtotal = totalareacalculator(Profile.where(interested_in_education: "yes"), startdate, enddate)
 
     newsletteraktiv = Subscription.where(active: true).where("created_at < ?", enddate).count
     newslettertotal = Subscription.where("created_at < ?", enddate).count
@@ -79,6 +82,7 @@ class Command
         belongtonouni: belongtonouni,
         german: german,
         french: french,
+        interested_in_education: interested_in_education,
         newsletteraktiv: newsletteraktiv,
         newslettertotal: newslettertotal
     }

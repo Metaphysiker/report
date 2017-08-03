@@ -16,6 +16,12 @@ class AddProfileerstelltToReports < ActiveRecord::Migration[5.1]
     add_column :reports, :societies, :hstore
     add_index :reports, :societies, using: :gin
 
+    add_column :reports, :lehrpersonentotal, :hstore
+    add_index :reports, :lehrpersonentotal, using: :gin
+
+    add_column :reports, :interestedineducationtotal, :hstore
+    add_index :reports, :interestedineducationtotal, using: :gin
+
     add_column :reports, :profileerstellt, :hstore
     add_index :reports, :profileerstellt, using: :gin
 

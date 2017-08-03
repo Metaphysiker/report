@@ -47,6 +47,16 @@
 <h3>Entwicklung</h3>
 <%= area_chart report.jobstotal  %>
 <br>
+<br>
+<h2>Lehrpersonen total: <%= report.lehrpersonentotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
+<%= area_chart report.lehrpersonentotal  %>
+<br>
+<br>
+<h2>Interessierte in Weiterbildung total: <%= report.interestedineducationtotal.to_a.last[1] %></h2>
+<h3>Entwicklung</h3>
+<%= area_chart report.interestedineducationtotal  %>
+<br>
 <h2>Newsletter bezogen: <%= report.newslettertotal.to_a.last[1].to_i - report.newslettertotal[report.startdate.to_s].to_i  %></h2>
 <h3>Fluktuation</h3>
 <%= line_chart report.newslettererstellt %>

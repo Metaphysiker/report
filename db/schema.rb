@@ -438,6 +438,8 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.string "articleanalysis", default: [], array: true
     t.string "eventanalysis", default: [], array: true
     t.hstore "societies"
+    t.hstore "lehrpersonentotal"
+    t.hstore "interestedineducationtotal"
     t.hstore "profileerstellt"
     t.hstore "profiletotal"
     t.hstore "kommentareerstellt"
@@ -461,11 +463,13 @@ ActiveRecord::Schema.define(version: 20170725193849) do
     t.index ["eventserstellt"], name: "index_reports_on_eventserstellt", using: :gin
     t.index ["eventstotal"], name: "index_reports_on_eventstotal", using: :gin
     t.index ["general"], name: "index_reports_on_general", using: :gin
+    t.index ["interestedineducationtotal"], name: "index_reports_on_interestedineducationtotal", using: :gin
     t.index ["interests"], name: "index_reports_on_interests", using: :gin
     t.index ["jobserstellt"], name: "index_reports_on_jobserstellt", using: :gin
     t.index ["jobstotal"], name: "index_reports_on_jobstotal", using: :gin
     t.index ["kommentareerstellt"], name: "index_reports_on_kommentareerstellt", using: :gin
     t.index ["kommentaretotal"], name: "index_reports_on_kommentaretotal", using: :gin
+    t.index ["lehrpersonentotal"], name: "index_reports_on_lehrpersonentotal", using: :gin
     t.index ["newslettererstellt"], name: "index_reports_on_newslettererstellt", using: :gin
     t.index ["newslettertotal"], name: "index_reports_on_newslettertotal", using: :gin
     t.index ["preferences"], name: "index_reports_on_preferences", using: :gin
