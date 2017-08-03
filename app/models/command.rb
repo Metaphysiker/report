@@ -67,7 +67,18 @@ class Command
     report.lehrpersonentotal = totalareacalculator(Profile.where.not(teacher_at_institution: ""), startdate, enddate)
     report.interestedineducationtotal = totalareacalculator(Profile.where(interested_in_education: "yes"), startdate, enddate)
 
-    newsletteraktiv = Subscription.where(active: true).where("created_at < ?", enddate).count
+    #newsletteraktiv = Subscription.where(active: true).where("created_at < ?", enddate).count
+    newslettersvalid = Subscription.where(active: true).where("valid_until > ?", report.date).where("created_at < ?", enddate)
+    newslettersuni = Subscription.where(active: true).where("created_at < ?", enddate) - newslettersvalid
+    activeandvalidcount = newslettersvalid.count + newslettersuni.count
+
+    newslettersuni.each do |n|
+      if Profile.find(n.profile_id).institutional_affiliation == "" || Profile.find(n.profile_id).institutional_affiliation == "other"
+        activeandvalidcount -=1
+      end
+    end
+
+    newsletteraktiv = activeandvalidcount
     newslettertotal = Subscription.where("created_at < ?", enddate).count
 
     report.general = {

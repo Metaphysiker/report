@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td>
-      <%= pie_chart({"Mitglieder: #{report.general["members"]}" => report.general["members"], "Institutionen: #{report.general["institutions"]}" => report.general["institutions"]})%>
+      <%= pie_chart({"Mitglieder: #{report.general["members"]}" => report.general["members"], "Institutionen: #{report.general["institutions"]}" => report.general["institutions"]}) %>
     </td>
     <td>
       <%= pie_chart({"Öffentlich: #{report.general["public"]}" => report.general["public"], "Privat: #{report.general["private"]}" => report.general["private"]}, colors: ["green", "orange"])%>
