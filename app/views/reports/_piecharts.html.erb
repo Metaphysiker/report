@@ -1,21 +1,12 @@
 <h2>Benutzerprofile insgesamt: <%= report.general["allprofiles"] %></h2>
 
-<table>
-  <tr>
-    <td>
-      <%= pie_chart({"Mitglieder: #{report.general["members"]}" => report.general["members"], "Institutionen: #{report.general["institutions"]}" => report.general["institutions"]}) %>
-    </td>
-    <td>
-      <%= pie_chart({"Öffentlich: #{report.general["public"]}" => report.general["public"], "Privat: #{report.general["private"]}" => report.general["private"]}, colors: ["green", "orange"])%>
-    </td>
-    <td>
-      <%= pie_chart({"Allgemein: #{report.general["allgemein"]}" => report.general["allgemein"], "Experten: #{report.general["expert"]}" => report.general["expert"]}, colors: ["gray", "black"]) %>
-    </td>
-    <td>
-      <%= pie_chart({"Einer Uni zugehörig: #{report.general["belongtouni"]}" => report.general["belongtouni"], "Ohne Zugehörigkeit: #{report.general["belongtonouni"]}" => report.general["belongtonouni"]}, colors: ["yellow", "pink"]) %>
-    </td>
-    <td>
-      <%= pie_chart({"Deutsch: #{report.general["german"]}" => report.general["german"], "Französisch: #{report.general["french"]}" => report.general["french"]}, colors: ["violet", "brown"]) %>
-    </td>
-  </tr>
-</table>
+<%= pie_chart({"Mitglieder: #{report.general["members"]}" => report.general["members"], "Institutionen: #{report.general["institutions"]}" => report.general["institutions"]}, library: { pieSliceText: 'value' }, adapter: "google") %>
+<br>
+<%= pie_chart({"Öffentlich: #{report.general["public"]}" => report.general["public"], "Privat: #{report.general["private"]}" => report.general["private"]}, colors: ["green", "orange"], library: { pieSliceText: 'value' }, adapter: "google")%>
+<br>
+<%= pie_chart({"Allgemein: #{report.general["allgemein"]}" => report.general["allgemein"], "Experten: #{report.general["expert"]}" => report.general["expert"]}, colors: ["gray", "black"], library: { pieSliceText: 'value' }, adapter: "google") %>
+<br>
+<%= pie_chart({"Einer Uni zugehörig: #{report.general["belongtouni"]}" => report.general["belongtouni"], "Ohne Zugehörigkeit: #{report.general["belongtonouni"]}" => report.general["belongtonouni"]}, colors: ["yellow", "pink"], library: { pieSliceText: 'value' }, adapter: "google") %>
+<br>
+<%= pie_chart({"Deutsch: #{report.general["german"]}" => report.general["german"], "Französisch: #{report.general["french"]}" => report.general["french"]}, colors: ["violet", "brown"], library: { pieSliceText: 'value' }, adapter: "google") %>
+<br>

@@ -1,9 +1,8 @@
 <h2>Interessensgebiete</h2>
-
 <%= bar_chart [
                   {name: "Experten", data: report.stackedinterests[0]},
                   {name: "Allgemein", data: report.stackedinterests[1]}
-              ], height: "1500px", stacked: true %>
+              ], height: "1200px", stacked: true %>
 <br>
 <h2>Interessensgebiete Allgemein</h2>
 <%= bar_chart report.allgemeingroupinterests %>

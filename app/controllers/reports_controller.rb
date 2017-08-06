@@ -16,15 +16,15 @@ class ReportsController < ApplicationController
 
   def general
 
-    @reports = Report.all
+   # @reports = Report.all
 
-    @interests = count_chosen_topics("member")
+    #@interests = count_chosen_topics("member")
 
-    @generalinformation = analyze(Report.last)
+    #@generalinformation = analyze(Report.last)
 
-    @unis = Report.last.universities
+#    @unis = Report.last.universities
 
-    @stacked_interests = count_chosen_topics_stacked("member")
+ #   @stacked_interests = count_chosen_topics_stacked("member")
 
    # memberinos = {}
     #Report.all.order(:date).each do |report|
@@ -47,6 +47,8 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.json
   def show
+
+    gon.otherinstitutionschart = @report.societies
   end
 
   # GET /reports/new
