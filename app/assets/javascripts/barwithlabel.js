@@ -50,7 +50,7 @@ function barWithLabel(data, divtag){
                                 display: true
                             },
                             ticks: {
-                                max: Math.max(...data.datasets[0].data) + 10,
+                                //max: Math.max(...data.datasets[0].data) + 10,
                                 display: true,
                                 beginAtZero: true
                             }
