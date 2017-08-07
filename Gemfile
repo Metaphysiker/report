@@ -9,7 +9,6 @@ gem 'momentjs-rails'
 gem 'chart-js-rails'
 
 gem 'gon'
-gem 'listen', '< 3.2'
 
 gem "chartkick"
 gem 'groupdate'
