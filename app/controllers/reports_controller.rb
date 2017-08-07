@@ -48,7 +48,13 @@ class ReportsController < ApplicationController
   # GET /reports/1.json
   def show
 
+    gon.newsletteraktiv = @report
+
     gon.otherinstitutionschart = @report.societies
+
+    allgemeingroupinterests = @report.allgemeingroupinterests.to_h
+
+    gon.interesseallgemein = allgemeingroupinterests
   end
 
   # GET /reports/new

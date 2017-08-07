@@ -5,10 +5,14 @@
               ], height: "1200px", stacked: true %>
 <br>
 <h2>Interessensgebiete Allgemein</h2>
-<%= bar_chart report.allgemeingroupinterests %>
+<canvas id="interesseallgemein"></canvas>
 <br>
 <h2>Thementags</h2>
 <%= bar_chart [
                   {name: "Artikel", data: report.articleanalysis.reverse.to_h},
                   {name: "Events", data: report.eventanalysis}
               ], height: "1500px", stacked: true %>
+
+<script>
+    horizontalBarWithLabel(gon.interesseallgemein, "interesseallgemein");
+</script>
