@@ -16,6 +16,8 @@ class ReportsController < ApplicationController
       end
     end
 
+    articles = articles.uniq
+
     @articleswithcomments = articles
   end
 
