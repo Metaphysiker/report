@@ -4,6 +4,21 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
 
+  def comments
+
+    articles = []
+
+    Comment.all.each do |comment|
+
+      if AlchemyPage.where(id: comment.commentable_id).exists?
+        puts comment.id
+        articles.push(AlchemyPage.find(comment.commentable_id))
+      end
+    end
+
+    @articleswithcomments = articles
+  end
+
   def auswahl
     @firsthalfyear = Report.find_by_name("firsthalfyear")
     @secondhalfyear =  Report.find_by_name("secondhalfyear")

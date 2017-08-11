@@ -1,0 +1,12 @@
+<h1>Kommentare</h1>
+
+<% @articleswithcomments.each do |article| %>
+ <h2><%= article.name %></h2>  <br>
+  Kommentare: <br>
+  <% comments = Comment.where(commentable_id: article.id) %>
+  <% comments.each do |comment| %>
+  <%= comment.body %><br>
+        ----------------------------------------------------------------------------------------
+        <br><br>
+  <% end %>
+<% end %>
