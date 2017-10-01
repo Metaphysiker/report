@@ -4,7 +4,6 @@
     <data-source name="Rails reports: production" uuid="2e96a9a1-e78a-4104-80e3-454d0aca7967">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
       <user-name>reports</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff8dfefdffadfe5dff8dffedff9dff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
     </data-source>
     <data-source name="Rails reports: development" uuid="5210d58d-e016-43bc-85c9-560245218e13">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />

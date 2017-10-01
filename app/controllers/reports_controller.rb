@@ -23,6 +23,7 @@ class ReportsController < ApplicationController
 
   def auswahl
     @firsthalfyear = Report.find_by_name("firsthalfyear")
+    @thirdquarter = Report.find_by_name("thirdquarter")
     @secondhalfyear =  Report.find_by_name("secondhalfyear")
     @alltime = Report.find_by_name("alltime")
   end

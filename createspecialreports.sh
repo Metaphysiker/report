@@ -5,6 +5,12 @@
 
 echo "Command.new.specialcreate('firsthalfyear', Date.parse('15-07-2017'), Date.parse('01-01-2017'), Date.parse('30-06-2017'))" | rails c
 
+#Third quarter
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/30-09-2017.dump.bz2"
+
+echo "Command.new.specialcreate('thirdquarter', Date.parse('30-09-2017'), Date.parse('30-06-2017'), Date.parse('30-09-2017'))" | rails c
+
+
 #Latest report for all time, with newest backup
 LATESTDUMP=$(./getlatestdump.sh)
 echo $LATESTDUMP
