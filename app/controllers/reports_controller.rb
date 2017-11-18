@@ -7,8 +7,11 @@ class ReportsController < ApplicationController
   def comments
 
     articles = []
+    @comments = Comment.where.not(confirmed_at: nil)
 
-    Comment.all.each do |comment|
+    Comment.where.not(confirmed_at: nil).each do |comment|
+    #Comment.all.each do |comment|
+    #Comment.where("created_at > ?", Date.today - 7.days).each do |comment|
 
       if AlchemyPage.where(id: comment.commentable_id).exists?
         puts comment.id

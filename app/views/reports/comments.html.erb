@@ -1,13 +1,18 @@
 <h1>Kommentare</h1>
+<%= @comments.count %>
+<br>
 
 <% @articleswithcomments.each do |article| %>
  <h2><%= article.name %></h2>  <br>
   Kommentare: <br>
   <% comments = Comment.where(commentable_id: article.id) %>
   <% comments.each do |comment| %>
-        ----------------------------------------------------------------------------------------<br>
-  <%= comment.body %><br>
-        ----------------------------------------------------------------------------------------
-        <br><br>
+        <% if comment.confirmed_at != nil %>
+            ----------------------------------------------------------------------------------------<br>
+            Datum: <%= comment.created_at %> <%= comment.id %><br><br>
+            <%= comment.body %><br>
+            ----------------------------------------------------------------------------------------
+            <br><br>
+        <% end %>
   <% end %>
 <% end %>

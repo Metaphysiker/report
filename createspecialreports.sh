@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-#First Half Year with most closest backup
+#In case relations are not found, do this: rails db < db/reportswithoutconnect.dump
+# Then ./createspecialreports.shraiy
+
+# First Half Year with most closest backup
 ./loadsingledump.sh "/home/sandro/Documents/philochbackups/15-07-2017.dump.bz2"
 
 echo "Command.new.specialcreate('firsthalfyear', Date.parse('15-07-2017'), Date.parse('01-01-2017'), Date.parse('30-06-2017'))" | rails c
@@ -32,4 +35,4 @@ heroku pg:push reports_development DATABASE_URL --app evening-ravine-89617
 
 heroku open
 
-#pg_dump -a philosophiech001 | psql reports_development
+#pg_dump -a philosophiech001 | psql reports_development.
