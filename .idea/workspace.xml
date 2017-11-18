@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="179c63c5-0055-467a-80a6-76d2037d6fd3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/reports.iml" afterPath="$PROJECT_DIR$/.idea/reports.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/comments.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/comments.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createspecialreports.sh" afterPath="$PROJECT_DIR$/createspecialreports.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/listen" afterPath="$PROJECT_DIR$/vendor/bundle/bin/listen" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/nokogiri" afterPath="$PROJECT_DIR$/vendor/bundle/bin/nokogiri" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/puma" afterPath="$PROJECT_DIR$/vendor/bundle/bin/puma" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/pumactl" afterPath="$PROJECT_DIR$/vendor/bundle/bin/pumactl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/rackup" afterPath="$PROJECT_DIR$/vendor/bundle/bin/rackup" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/rails" afterPath="$PROJECT_DIR$/vendor/bundle/bin/rails" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/rake" afterPath="$PROJECT_DIR$/vendor/bundle/bin/rake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/sass" afterPath="$PROJECT_DIR$/vendor/bundle/bin/sass" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/sass-convert" afterPath="$PROJECT_DIR$/vendor/bundle/bin/sass-convert" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/scss" afterPath="$PROJECT_DIR$/vendor/bundle/bin/scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/sprockets" afterPath="$PROJECT_DIR$/vendor/bundle/bin/sprockets" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/thor" afterPath="$PROJECT_DIR$/vendor/bundle/bin/thor" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/bundle/bin/tilt" afterPath="$PROJECT_DIR$/vendor/bundle/bin/tilt" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -93,8 +75,8 @@
       <file leaf-file-name="comments.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/reports/comments.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="289">
+              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -598,12 +580,12 @@
       <workItem from="1509519796521" duration="594000" />
       <workItem from="1509919622184" duration="2482000" />
       <workItem from="1510604915774" duration="584000" />
-      <workItem from="1510953564920" duration="5565000" />
+      <workItem from="1510953564920" duration="6115000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="358328000" />
+    <option name="totallyTimeSpent" value="358878000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1003,8 +985,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/reports/comments.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="289">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
           <folding />
         </state>
       </provider>
