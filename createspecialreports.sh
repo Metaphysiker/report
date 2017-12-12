@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 #In case relations are not found, do this: rails db < db/reportswithoutconnect.dump
-# Then ./createspecialreports.shraiy
+# Then ./createspecialreports.sh
+
+#delete existing reports
+rails runner 'Report.delete_all'
 
 # First Half Year with most closest backup
 ./loadsingledump.sh "/home/sandro/Documents/philochbackups/15-07-2017.dump.bz2"
@@ -24,6 +27,10 @@ echo "Command.new.specialcreate('alltime', Date.parse('$DATE'), Date.parse('01-1
 #latest report for 30-06-2017 - today
 ./loadsingledump.sh $LATESTDUMP
 echo "Command.new.specialcreate('secondhalfyear', Date.parse('$DATE'), Date.parse('30-06-2017'), Date.parse('$DATE'))" | rails c
+
+#latest report for 01-01-2017 - today
+./loadsingledump.sh $LATESTDUMP
+echo "Command.new.specialcreate('actual2017', Date.parse('$DATE'), Date.parse('01-01-2017'), Date.parse('$DATE'))" | rails c
 
 
 
