@@ -6,16 +6,29 @@
 #delete existing reports
 rails runner 'Report.delete_all'
 
-# First Half Year with most closest backup
+# name - date of backup - startdate - enddate
+
+# First Half Year 2017 with most closest backup
 ./loadsingledump.sh "/home/sandro/Documents/philochbackups/15-07-2017.dump.bz2"
 
-echo "Command.new.specialcreate('firsthalfyear', Date.parse('15-07-2017'), Date.parse('01-01-2017'), Date.parse('30-06-2017'))" | rails c
+echo "Command.new.specialcreate('firsthalfyear2017', Date.parse('15-07-2017'), Date.parse('01-01-2017'), Date.parse('30-06-2017'))" | rails c
 
-#Third quarter
+# Second half year 2017
+
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/01-01-2018.dump.bz2"
+
+echo "Command.new.specialcreate('secondhalfyear2017', Date.parse('01-01-2018'), Date.parse('01-07-2017'), Date.parse('31-12-2017'))" | rails c
+
+#year 2017
+
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/31-12-2017.dump.bz2"
+
+echo "Command.new.specialcreate('year2017', Date.parse('31-12-2017'), Date.parse('01-01-2017'), Date.parse('31-12-2017'))" | rails c
+
+#Third quarter - removed from auswahl
 ./loadsingledump.sh "/home/sandro/Documents/philochbackups/30-09-2017.dump.bz2"
 
 echo "Command.new.specialcreate('thirdquarter', Date.parse('30-09-2017'), Date.parse('30-06-2017'), Date.parse('30-09-2017'))" | rails c
-
 
 #Latest report for all time, with newest backup
 LATESTDUMP=$(./getlatestdump.sh)
@@ -24,9 +37,9 @@ DATE=$(echo $LATESTDUMP | cut -b 39-48)
 ./loadsingledump.sh $LATESTDUMP
 echo "Command.new.specialcreate('alltime', Date.parse('$DATE'), Date.parse('01-10-2016'), Date.parse('$DATE'))" | rails c
 
-#latest report for 30-06-2017 - today
+#latest report for 30-06-2017 - today - removed from auswahl
 ./loadsingledump.sh $LATESTDUMP
-echo "Command.new.specialcreate('secondhalfyear', Date.parse('$DATE'), Date.parse('30-06-2017'), Date.parse('$DATE'))" | rails c
+echo "Command.new.specialcreate('secondhalfyear2017f', Date.parse('$DATE'), Date.parse('30-06-2017'), Date.parse('$DATE'))" | rails c
 
 #latest report for 01-01-2017 - today
 ./loadsingledump.sh $LATESTDUMP
