@@ -26,3 +26,17 @@
     font-size: 16px;
     margin: 4px 2px;
 }
+
+.results tr[visible='false'],
+.no-result{
+    display:none;
+}
+
+.results tr[visible='true']{
+    display:table-row;
+}
+
+.counter{
+    padding:8px;
+    color:#ccc;
+}
