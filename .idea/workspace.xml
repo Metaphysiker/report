@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="179c63c5-0055-467a-80a6-76d2037d6fd3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/reports_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/reports_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/command.rb" afterPath="$PROJECT_DIR$/app/models/command.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/comments.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/comments.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -236,7 +229,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="45" />
+    <option name="x" value="39" />
+    <option name="y" value="28" />
     <option name="width" value="1201" />
     <option name="height" value="997" />
   </component>
@@ -669,12 +663,12 @@
       <workItem from="1514580689254" duration="1260000" />
       <workItem from="1514977265942" duration="1324000" />
       <workItem from="1515771509150" duration="2042000" />
-      <workItem from="1516975615470" duration="15740000" />
+      <workItem from="1516975615470" duration="15893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="411716000" />
+    <option name="totallyTimeSpent" value="411869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -686,7 +680,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="45" width="1201" height="997" extended-state="0" />
+    <frame x="39" y="28" width="1201" height="997" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25194806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
