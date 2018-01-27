@@ -1,22 +1,3 @@
-<h1>Kommentare</h1>
-<%= @comments.count %>
-<br>
-
-<% @articleswithcomments.each do |article| %>
- <h2><%= article.name %></h2>  <br>
-  Kommentare: <br>
-  <% comments = Comment.where(commentable_id: article.id) %>
-  <% comments.each do |comment| %>
-        <% if comment.confirmed_at != nil %>
-            ----------------------------------------------------------------------------------------<br>
-            Datum: <%= comment.created_at %> <%= comment.id %><br><br>
-            <%= comment.body %><br>
-            ----------------------------------------------------------------------------------------
-            <br><br>
-        <% end %>
-  <% end %>
-<% end %>
-
 <div class="form-group pull-right">
   <input type="text" class="search form-control" placeholder="What you looking for?">
 </div>
@@ -37,24 +18,24 @@
   <tbody>
 
 
-<% @articleswithcomments.each do |article| %>
+  <% @articleswithcomments.each do |article| %>
 
-    <% comments = Comment.where.not(confirmed_at: nil).where(commentable_id: article.id) %>
+      <% comments = Comment.where.not(confirmed_at: nil).where(commentable_id: article.id) %>
 
       <tr>
-        <th scope="row">1</th>
+        <th scope="row"><%= article.id %></th>
         <td><%= article.name %></td>
         <td><%= comments.count %></td>
         <td>
-          <% countphilochler(comments) %>
+          <%= countphilochler(comments) %>
         </td>
         <td>
-          <% comments.count - countphilochler(comments) %>
+          <%= comments.count - countphilochler(comments) %>
         </td>
       </tr>
 
 
-<% end %>
+  <% end %>
 
   </tbody>
 </table>

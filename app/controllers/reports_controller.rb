@@ -24,6 +24,28 @@ class ReportsController < ApplicationController
     @articleswithcomments = articles
   end
 
+  def philosophieaktuell
+    articles = []
+    @comments = Comment.where.not(confirmed_at: nil)
+
+    aktuellarticles = getallarticleswithtag("Projekt Philosophie aktuell")
+
+    Comment.where.not(confirmed_at: nil).each do |comment|
+      #Comment.all.each do |comment|
+      #Comment.where("created_at > ?", Date.today - 7.days).each do |comment|
+
+      #if AlchemyPage.where(id: comment.commentable_id).exists?
+
+      if aktuellarticles.where(id: comment.commentable_id).exists?
+        articles.push(AlchemyPage.find(comment.commentable_id))
+      end
+    end
+
+    articles = articles.uniq
+
+    @articleswithcomments = articles
+  end
+
   def auswahl
     @firsthalfyear = Report.find_by_name("firsthalfyear")
     @thirdquarter = Report.find_by_name("thirdquarter")
@@ -276,6 +298,30 @@ class ReportsController < ApplicationController
           hash[topic.name] = hash[topic.name] + 1
         end
       end
+  end
+
+  def getallarticleswithtag(tag)
+    list = []
+    AlchemyPage.where(page_layout: "article").each do |article|
+
+      element = AlchemyElement.where(page_id: article.id).where(name: "intro")
+
+      content = AlchemyContent.where(element_id: element.last.id).where(essence_type: "Alchemy::EssenceTopic")
+
+      topics_ids = AlchemyEssenceTopicsTopic.where(alchemy_essence_topic_id: content.last.essence_id)
+
+
+      topics_ids.each do |topic|
+
+        if Topic.find(topic.topic_id).name == tag
+          list.push(article)
+          break
+        end
+
+      end
+    end
+    ids = list.collect{|u| u.id}
+    AlchemyPage.where(page_layout: "article").where(id: ids)
   end
 
 end

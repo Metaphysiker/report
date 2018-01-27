@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/kommentare/', to: 'reports#comments'
 
+  get '/philosophieaktuell/', to: 'reports#philosophieaktuell'
+
   root 'reports#auswahl'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -46,8 +46,10 @@ class Command
     report.profileerstellt = weekcalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
     report.profiletotal = totalareacalculator(AlchemyUser.where(alchemy_roles: "member"), startdate, enddate)
     #report.kommentareerstellt = Comment.group_by_week(:created_at, range: startdate..enddate).count
-    report.kommentareerstellt = weekcalculator(Comment.all, startdate, enddate)
-    report.kommentaretotal = totalareacalculator(Comment.all, startdate, enddate)
+    #report.kommentareerstellt = weekcalculator(Comment.all, startdate, enddate)
+    #report.kommentaretotal = totalareacalculator(Comment.all, startdate, enddate)
+    report.kommentareerstellt = weekcalculator(Comment.where.not(confirmed_at: nil), startdate, enddate)
+    report.kommentaretotal = totalareacalculator(Comment.where.not(confirmed_at: nil), startdate, enddate)
     #report.eventserstellt =  AlchemyPage.where(page_layout: "event").group_by_week(:created_at, range: startdate..enddate).count
     report.eventserstellt = weekcalculator(AlchemyPage.where(page_layout: "event"), startdate, enddate)
     report.eventstotal = totalareacalculator(AlchemyPage.where(page_layout: "event"), startdate, enddate)
