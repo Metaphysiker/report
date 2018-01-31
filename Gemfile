@@ -8,7 +8,7 @@ gem "highcharts-rails"
 gem 'momentjs-rails'
 gem 'chart-js-rails'
 
-gem "nokogiri"
+gem "nokogiri", '~> 1.8.2'
 
 gem 'gon'
 gem 'listen', '< 3.2'
