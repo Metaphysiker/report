@@ -1,0 +1,71 @@
+<div class="form-group pull-right">
+  <input type="text" class="search form-control" placeholder="What you looking for?">
+</div>
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th class="col-md-5 col-xs-5">Artikel</th>
+    <th class="col-md-4 col-xs-4">Anzahl Kommentare</th>
+    <th class="col-md-3 col-xs-3">Anzahl Kommentare von Philo.chler</th>
+    <th class="col-md-3 col-xs-3">Anzahl Kommentare ohne Philo.chler</th>
+  </tr>
+  <tr class="warning no-result">
+    <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+  </tr>
+  </thead>
+  <tbody>
+
+
+  <% @articleswithcomments.each do |article| %>
+
+      <% comments = Comment.where.not(confirmed_at: nil).where(commentable_id: article.id) %>
+
+      <tr>
+        <th scope="row"><%= article.id %></th>
+        <td><%= article.name %></td>
+        <td><%= comments.count %></td>
+        <td>
+          <%= countphilochler(comments) %>
+        </td>
+        <td>
+          <%= comments.count - countphilochler(comments) %>
+        </td>
+      </tr>
+
+
+  <% end %>
+
+  </tbody>
+</table>
+
+
+<script>
+    $(document).ready(function() {
+        $(".search").keyup(function () {
+            var searchTerm = $(".search").val();
+            var listItem = $('.results tbody').children('tr');
+            var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+            $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+            }
+            });
+
+            $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                $(this).attr('visible','false');
+            });
+
+            $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                $(this).attr('visible','true');
+            });
+
+            var jobCount = $('.results tbody tr[visible="true"]').length;
+            $('.counter').text(jobCount + ' item');
+
+            if(jobCount == '0') {$('.no-result').show();}
+            else {$('.no-result').hide();}
+        });
+    });
+</script>

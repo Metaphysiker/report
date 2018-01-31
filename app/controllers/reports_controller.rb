@@ -24,6 +24,28 @@ class ReportsController < ApplicationController
     @articleswithcomments = articles
   end
 
+  def liebeundgemeinschaft
+    articles = []
+    @comments = Comment.where.not(confirmed_at: nil)
+
+    aktuellarticles = getallarticleswithtag("Projekt Liebe und Gemeinschaft")
+
+    Comment.where.not(confirmed_at: nil).each do |comment|
+      #Comment.all.each do |comment|
+      #Comment.where("created_at > ?", Date.today - 7.days).each do |comment|
+
+      #if AlchemyPage.where(id: comment.commentable_id).exists?
+
+      if aktuellarticles.where(id: comment.commentable_id).exists?
+        articles.push(AlchemyPage.find(comment.commentable_id))
+      end
+    end
+
+    articles = articles.uniq
+
+    @articleswithcomments = articles
+  end
+
   def philosophieaktuell
     articles = []
     @comments = Comment.where.not(confirmed_at: nil)
