@@ -4,7 +4,7 @@
 # Then ./createspecialreports.sh
 
 #create a check entry
-#result="$(rails runner "Checked.new.checkfinished")"
+rails runner 'Checked.new.checkfinished'
 
 #delete existing reports
 rails runner 'Report.delete_all'
