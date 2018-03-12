@@ -346,6 +346,10 @@ class ReportsController < ApplicationController
     AlchemyPage.where(page_layout: "article").where(id: ids)
   end
 
+  def blogger
+
+  end
+
 end
 
 

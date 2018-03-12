@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  blogger_id: 1
+  deadline: 2018-03-12
+  reminded: 2018-03-12
+  needsreminder: false
+
+two:
+  blogger_id: 1
+  deadline: 2018-03-12
+  reminded: 2018-03-12
+  needsreminder: false

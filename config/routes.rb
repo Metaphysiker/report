@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/philosophieaktuell/', to: 'reports#philosophieaktuell'
 
+  get '/blogger/', to: 'reports#blogger'
+
   get '/liebeundgemeinschaft/', to: 'reports#liebeundgemeinschaft'
 
   root 'reports#auswahl'
