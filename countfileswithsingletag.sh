@@ -8,7 +8,7 @@ AlchemyPage.where(page_layout: "article").each do |article|
   topics_ids = AlchemyEssenceTopicsTopic.where(alchemy_essence_topic_id: content.last.essence_id)
   topico = topics_ids.first
 
-  if (topics_ids.count == 1) && (Topic.find(topico.topic_id).name == "applied ethics")
+  if (topics_ids.count == 1) && (Topic.find(topico.topic_id).name == "philosophy of the social sciences")
     list << article
   end
 end

@@ -3,6 +3,9 @@
 #In case relations are not found, do this: rails db < db/reportswithoutconnect.dump
 # Then ./createspecialreports.sh
 
+#create a check entry
+#result="$(rails runner "Checked.new.checkfinished")"
+
 #delete existing reports
 rails runner 'Report.delete_all'
 

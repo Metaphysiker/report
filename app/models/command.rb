@@ -429,13 +429,17 @@ class Command
         "Administrative Infos, Humor und Zitate" => 0
     }
 
+
     Profile.where(level:0).each do |profile|
       next if AlchemyUser.find(profile.id).alchemy_roles != "member"
       next if profile.topics.empty?
 
       hash_of_topic_groups.each do |key, value|
-        if Topic.where(group: value).count == profile.topics.where(group: value).count
-          final_hash_of_topic_groups[key] += 1
+        #if Topic.where(group: value).count == profile.topics.where(group: value).count
+
+        if profile.topics.where(group: value).count > 0
+
+        final_hash_of_topic_groups[key] += 1
         end
       end
 
