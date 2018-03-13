@@ -8,6 +8,8 @@ gem "highcharts-rails"
 gem 'momentjs-rails'
 gem 'chart-js-rails'
 
+gem 'seed_dump'
+
 gem "nokogiri", '~> 1.8.2'
 
 gem 'gon'

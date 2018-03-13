@@ -1,17 +1,15 @@
-<h1>Blogger von Philosophie.ch</h1>
-
+<br>
 <div class="form-group pull-right">
   <input type="text" class="search form-control" placeholder="Nach Mitglied suchen">
 </div>
+
+<h1>Interessenten</h1>
+
 <span class="counter pull-right"></span>
 <table class="table table-hover table-bordered results">
   <thead>
   <tr>
-    <th>#</th>
-    <th class="col-md-3 col-xs-3">Blogger</th>
-    <th class="col-md-3 col-xs-3">Anzahl Beiträge</th>
-    <th class="col-md-3 col-xs-3">Letzter Beitrag erstellt</th>
-    <th class="col-md-3 col-xs-3">Erinnerung nötig?</th>
+    <th class="col-md-3 col-xs-3">Name</th>
   </tr>
   <tr class="warning no-result">
     <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -19,21 +17,65 @@
   </thead>
   <tbody>
 
-  <% ids = Blogger.all.pluck(:blogger_id) %>
-  <% AlchemyUser.find(ids).each do |member| %>
-      <% id = member.id %>
       <tr>
-        <th scope="row"><%= id %></th>
-        <td><%= member.firstname %> <%= member.lastname %></td>
-        <td>
-          <%= AlchemyPage.where(page_layout: "article").where(creator_id: id).count %>
-        </td>
-        <td>
+        <td>Michaela Abdelhamid</td>
+      </tr>
 
-          <%= AlchemyPage.where(page_layout: "article").where(creator_id: id).order("created_at").last.created_at unless AlchemyPage.where(page_layout: "article").where(creator_id: id).order("published_at").last.nil? %>
+      <tr>
+        <td>Lilian Grüter</td>
+      </tr>
+
+      <tr>
+        <td>Svea Wegener</td>
+      </tr>
+
+      <tr>
+        <td>Dr. Susanne Moser</td>
+      </tr>
+
+      <tr>
+        <td>Dr. Alexander Fischer</td>
+      </tr>
+
+  </tbody>
+</table>
+
+<h1>Blogger</h1>
+
+<span class="counter pull-right"></span>
+<table class="table table-hover table-bordered results">
+  <thead>
+  <tr>
+    <th class="col-md-1">#</th>
+    <th class="col-md-4">Blogger</th>
+    <th class="col-md-1">Anzahl Beiträge</th>
+    <th class="col-md-2">Interessensgebiet</th>
+    <th class="col-md-2">Letzter Beitrag erstellt</th>
+    <th class="col-md-2">Letzte Erinnerung erhalten</th>
+  </tr>
+  <tr class="warning no-result">
+    <td colspan="4"><i class="fa fa-warning"></i> No result</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% ids = Blogger.all.pluck(:blogger_id) %>
+  <% Blogger.all.each do |blogger| %>
+      <tr>
+        <th scope="row"><%= blogger.blogger_id %></th>
+        <td>
+          <%= blogger.name %> -  <%= blogger.loginname %></td>
+        <td>
+          <%= blogger.entriescount %>
         </td>
         <td>
-          leer
+          <%= blogger.interests %>
+        </td>
+        <td>
+          <%= blogger.lastentry %>
+        </td>
+
+        <td>
+          <%= blogger.reminderstatus %>
         </td>
       </tr>
 
@@ -70,7 +112,14 @@
           <%= member.login %>
         </td>
         <td>
-          <button type="button" class="btn btn-primary">Als Blogger hinzufügen</button>
+          <%= form_tag("/addblogger", method: "post") do %>
+              <%= label_tag(:blogger_interests, "Interessensgebiet:") %>
+              <%= text_field_tag(:blogger_interests) %>
+              <%= hidden_field_tag :blogger_id, member.id %>
+              <br>
+              <br>
+              <%= submit_tag"Als Blogger hinzufügen", class: "btn btn-primary" %>
+          <% end %>
         </td>
       </tr>
 

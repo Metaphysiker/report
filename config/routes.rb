@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   get '/blogger/', to: 'reports#blogger'
 
+  post '/addblogger/', to: 'reports#addblogger'
+
+  get '/bloggercsv/', to: 'reports#bloggercsv'
+
   get '/liebeundgemeinschaft/', to: 'reports#liebeundgemeinschaft'
 
   root 'reports#auswahl'

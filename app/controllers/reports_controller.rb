@@ -4,6 +4,17 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
 
+  def bloggercsv
+    @bloggers = Blogger.all
+    respond_to do |format|
+      format.csv { send_data @bloggers.to_csv, filename: "Liste-Blogger.csv" }
+    end
+  end
+
+  def blogger
+
+  end
+
   def comments
 
     articles = []
@@ -175,8 +186,16 @@ class ReportsController < ApplicationController
 
   def calculatenew(value, range)
 
+  end
 
 
+  def addblogger
+    blogger_id = params[:blogger_id]
+    blogger_interests = params[:blogger_interests]
+
+    Blogger.create(blogger_id: blogger_id, interests: blogger_interests)
+
+    redirect_to blogger_path
   end
 
 
@@ -346,9 +365,8 @@ class ReportsController < ApplicationController
     AlchemyPage.where(page_layout: "article").where(id: ids)
   end
 
-  def blogger
 
-  end
+
 
 end
 
