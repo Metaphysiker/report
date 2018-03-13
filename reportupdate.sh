@@ -12,6 +12,8 @@ if [ "$result" == false ]
 then
   kdialog --passivepopup 'Reports are being created.' 5
 
+  #./overwritebloggerfromheroku.sh
+
   # Get today's dump
   # scp -P 22000 vpsadmin@havps11.iron.bsa.oriented.ch:/var/backups/pgsql/havps11.pgsql_all.dump.bz2 /home/sandro/Documents/philochbackups/"$(date '+\%d-\%m-\%Y').dump.bz2"
   scp -P 22000 vpsadmin@havps11.iron.bsa.oriented.ch:/var/backups/pgsql/havps11.pgsql_all.dump.bz2 /home/sandro/Documents/philochbackups/"$(date '+%d-%m-%Y').dump.bz2"
