@@ -47,4 +47,14 @@ class Blogger < ApplicationRecord
     end
   end
 
+  def deadlinestatus
+    if self.deadline.nil?
+      return "table-warning"
+    elsif self.deadline > Date.today
+      return "table-success"
+    else
+      return "table-danger"
+    end
+  end
+
 end

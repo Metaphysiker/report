@@ -3,7 +3,7 @@
   <input type="text" class="search form-control" placeholder="Nach Mitglied suchen">
 </div>
 
-<h1>Interessenten</h1>
+<h1>Interessierte</h1>
 
 <span class="counter pull-right"></span>
 <table class="table table-hover table-bordered results">
@@ -47,10 +47,11 @@
   <thead>
   <tr>
     <th class="col-md-1">#</th>
-    <th class="col-md-4">Blogger</th>
+    <th class="col-md-2">Blogger</th>
     <th class="col-md-1">Anzahl Beiträge</th>
     <th class="col-md-2">Interessensgebiet</th>
     <th class="col-md-2">Letzter Beitrag erstellt</th>
+    <th class="col-md-2">Abgemachte Deadline</th>
     <th class="col-md-2">Letzte Erinnerung erhalten</th>
   </tr>
   <tr class="warning no-result">
@@ -72,6 +73,10 @@
         </td>
         <td>
           <%= blogger.lastentry %>
+        </td>
+
+        <td class="<%=blogger.deadlinestatus%>">
+          <%= blogger.deadline %>
         </td>
 
         <td>

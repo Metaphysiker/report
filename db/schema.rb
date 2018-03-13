@@ -327,8 +327,7 @@ ActiveRecord::Schema.define(version: 20180313085719) do
     t.index ["reset_password_token"], name: "index_alchemy_users_on_reset_password_token", unique: true
   end
 
-  create_table "bloggers", id: false, force: :cascade do |t|
-    t.bigint "id", null: false
+  create_table "bloggers", force: :cascade do |t|
     t.integer "blogger_id"
     t.date "deadline"
     t.date "reminded"
