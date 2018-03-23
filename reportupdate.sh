@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 #sudo -u sandro
 export DISPLAY=:0
+
 #check if there was a check today
 #rails runner 'Checked.new.wasthereachecktoday?'
 
@@ -10,8 +11,8 @@ result="$(rails runner "puts Checked.new.wasthereachecktoday?")"
 
 if [ "$result" == false ]
 then
-  kdialog --passivepopup 'Reports are being created.' 5
-
+kdialog --title "Reports are being created" --passivepopup \
+"Heroku open should happen at some point" 10
   #./overwritebloggerfromheroku.sh
 
   # Get today's dump
@@ -20,6 +21,14 @@ then
 
   # this will create the reports
   ./createspecialreports.sh
+
+
+  deadliningblogger="$(rake checkforendingdeadlines:normalcheck)"
+
+  kdialog --title "Deadlining bloggers" --passivepopup \ "$deadliningblogger" 10
+
+  wget  -O /home/sandro/Nextcloud/Philosophie.ch\ 2018/Verein\ 2018/adresslisten\ 2018/bloggerliste.csv "https://evening-ravine-89617.herokuapp.com/bloggercsv.csv"
+
 
 elif [ "$result" == true ]
 then
