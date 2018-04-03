@@ -32,7 +32,9 @@ class ReportsController < ApplicationController
 
     articles = articles.uniq
 
-    @articleswithcomments = articles
+    articles = AlchemyPage.where(id: articles.map(&:id))
+
+    @articleswithcomments = articles.order(created_at: :desc)
   end
 
   def liebeundgemeinschaft
