@@ -27,7 +27,7 @@ kdialog --title "Reports are being created" --passivepopup \
 
   kdialog --title "Deadlining bloggers" --passivepopup \ "$deadliningblogger" 10
 
-  wget  -O /home/sandro/Nextcloud/Philosophie.ch\ 2018/Verein\ 2018/adresslisten\ 2018/bloggerliste.csv "https://evening-ravine-89617.herokuapp.com/bloggercsv.csv"
+  wget  -O /home/sandro/Nextcloud/Philosophie.ch\ 2018/Verein\ 2018/adresslisten\ 2018/bloggerliste.csv "https://reportseite.herokuapp.com/bloggercsv.csv"
 
   halfsquarters="$(rake checkforendingdeadlines:checktimedistance)"
 

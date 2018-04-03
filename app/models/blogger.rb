@@ -6,7 +6,7 @@ class Blogger < ApplicationRecord
 
     CSV.generate(headers: true) do |csv|
       csv << ["BITTE NICHTS EINTRAGEN! ALLE VERÄNDERUNGEN WERDEN AUTOMATISCH GELÖSCHT!"]
-      csv << ["Übersicht auf https://evening-ravine-89617.herokuapp.com/blogger."]
+      csv << ["Übersicht auf https://reportseite.herokuapp.com//blogger."]
       csv << ["Erstellungsdatum: " + Date.today.to_s]
       csv << [" "]
       csv << attributes

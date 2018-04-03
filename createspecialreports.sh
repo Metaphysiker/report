@@ -57,11 +57,11 @@ echo "Command.new.specialcreate('actual2017', Date.parse('$DATE'), Date.parse('0
 
 
 
-heroku pg:reset --confirm evening-ravine-89617
+heroku pg:reset --confirm reportseite
 
 
 #push to heroku
-heroku pg:push reports_development DATABASE_URL --app evening-ravine-89617
+heroku pg:push reports_development DATABASE_URL --app reportseite
 
 heroku open
 
