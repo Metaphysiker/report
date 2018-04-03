@@ -32,10 +32,11 @@ namespace :checkforendingdeadlines do
 
       if blogger.lastentry.is_a? ActiveSupport::TimeWithZone
 
-        if blogger.lastentry + 6.months < Date.today
-          half.push(blogger.name)
-        elsif blogger.lastentry + 3.months < Date.today
+        if blogger.lastentry + 3.months < Date.today
+
           quarter.push(blogger.name)
+        elsif blogger.lastentry + 6.months < Date.today
+          half.push(blogger.name)
         end
 
       end
