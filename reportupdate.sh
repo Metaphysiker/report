@@ -29,10 +29,14 @@ kdialog --title "Reports are being created" --passivepopup \
 
   wget  -O /home/sandro/Nextcloud/Philosophie.ch\ 2018/Verein\ 2018/adresslisten\ 2018/bloggerliste.csv "https://evening-ravine-89617.herokuapp.com/bloggercsv.csv"
 
+  halfsquarters="$(rake checkforendingdeadlines:checktimedistance)"
+
+  kdialog --title "Time distance" --passivepopup \ "$halfsquarters" 10
 
 elif [ "$result" == true ]
 then
   echo "There was already a check. Nothing will happen."
+
   #kdialog --passivepopup 'There was already a check. Nothing will happen.' 5
 else
 logger "else"

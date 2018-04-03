@@ -33,6 +33,13 @@ echo "Command.new.specialcreate('year2017', Date.parse('31-12-2017'), Date.parse
 
 echo "Command.new.specialcreate('thirdquarter', Date.parse('30-09-2017'), Date.parse('30-06-2017'), Date.parse('30-09-2017'))" | rails c
 
+
+#First quarter 2018 - removed from auswahl
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/01-04-2018.dump.bz2"
+
+echo "Command.new.specialcreate('firstquarter18', Date.parse('01-04-2018'), Date.parse('30-06-2017'), Date.parse('31-03-2018'))" | rails c
+
+
 #Latest report for all time, with newest backup
 LATESTDUMP=$(./getlatestdump.sh)
 echo $LATESTDUMP

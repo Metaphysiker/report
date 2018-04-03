@@ -193,7 +193,7 @@ class ReportsController < ApplicationController
     blogger_id = params[:blogger_id]
     blogger_interests = params[:blogger_interests]
 
-    Blogger.create(id: blogger_id, blogger_id: blogger_id, interests: blogger_interests)
+    Blogger.create(blogger_id: blogger_id, interests: blogger_interests)
 
     redirect_to blogger_path
   end
