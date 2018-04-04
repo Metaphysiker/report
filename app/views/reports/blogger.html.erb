@@ -56,7 +56,7 @@
     <th class="col-md-2">Interessensgebiet</th>
     <th class="col-md-2">Letzter Beitrag erstellt</th>
     <th class="col-md-2">Abgemachte Deadline</th>
-    <th class="col-md-2">Letzte Erinnerung erhalten</th>
+    <th class="col-md-2">Beitrag abgegeben?</th>
   </tr>
   <tr class="warning no-result">
     <td colspan="4"><i class="fa fa-warning"></i> No result</td>
@@ -84,7 +84,7 @@
         </td>
 
         <td>
-          <%= blogger.reminderstatus %>
+          <%= blogger.submittedblog? %>
         </td>
       </tr>
 

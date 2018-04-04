@@ -57,4 +57,14 @@ class Blogger < ApplicationRecord
     end
   end
 
+  def submittedblog?
+    unless self.lastentry.is_a? String
+
+        self.lastentry.between?(self.beginning, self.deadline)
+      else
+      false
+    end
+
+  end
+
 end
