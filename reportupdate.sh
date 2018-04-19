@@ -19,6 +19,7 @@ kdialog --title "Reports are being created" --passivepopup \
   # scp -P 22000 vpsadmin@havps11.iron.bsa.oriented.ch:/var/backups/pgsql/havps11.pgsql_all.dump.bz2 /home/sandro/Documents/philochbackups/"$(date '+\%d-\%m-\%Y').dump.bz2"
   scp -P 22000 vpsadmin@havps11.iron.bsa.oriented.ch:/var/backups/pgsql/havps11.pgsql_all.dump.bz2 /home/sandro/Documents/philochbackups/"$(date '+%d-%m-%Y').dump.bz2"
 
+
   # this will create the reports
   ./createspecialreports.sh
 

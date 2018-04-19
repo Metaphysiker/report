@@ -2,6 +2,16 @@
 <%= @comments.count %>
 <br>
 
+<br>
+<h2>Neuste Kommentare</h2>
+<%= @comments.order(:created_at).reverse_order.each do |comment| %>
+    Artikel:<h2> <%= AlchemyPage.find_by_id(comment.commentable_id).name %></h2>
+    <br>
+    <%= comment.body %>
+    <br>
+    <br>
+<% end %>
+
 <% @articleswithcomments.each do |article| %>
  <h2><%= article.name %></h2>  <br>
   Kommentare: <br>
