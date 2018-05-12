@@ -15,6 +15,10 @@ class ReportsController < ApplicationController
 
   end
 
+  def externalposts
+    @externalposts = AlchemyPage.where(page_layout: "article").where.not(published_at: nil).all_except(Rails.configuration.philochlerids)
+  end
+
   def comments
 
     articles = []

@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/blogger/', to: 'reports#blogger'
 
+  get '/externalposts/', to: 'reports#externalposts'
+
   post '/addblogger/', to: 'reports#addblogger'
 
   get '/bloggercsv/', to: 'reports#bloggercsv'
