@@ -19,7 +19,7 @@ module ReportsHelper
     #u = AlchemyUser.find(creator_id)
     if AlchemyUser.where(id: creator_id).present?
       u = AlchemyUser.find(creator_id)
-      if u.firstname.empty?
+      if !u.firstname.blank?
         u.firstname + " " + u.lastname
       else
         u.login
