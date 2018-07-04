@@ -28,16 +28,21 @@ echo "Command.new.specialcreate('secondhalfyear2017', Date.parse('01-01-2018'), 
 
 echo "Command.new.specialcreate('year2017', Date.parse('31-12-2017'), Date.parse('01-01-2017'), Date.parse('31-12-2017'))" | rails c
 
-#Third quarter - removed from auswahl
-./loadsingledump.sh "/home/sandro/Documents/philochbackups/30-09-2017.dump.bz2"
+# First Half Year 2018
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/01-07-2018.dump.bz2"
 
-echo "Command.new.specialcreate('thirdquarter', Date.parse('30-09-2017'), Date.parse('30-06-2017'), Date.parse('30-09-2017'))" | rails c
+echo "Command.new.specialcreate('firsthalfyear2018', Date.parse('01-07-2018'), Date.parse('01-01-2018'), Date.parse('30-06-2018'))" | rails c
+
+#Third quarter - removed from auswahl
+#./loadsingledump.sh "/home/sandro/Documents/philochbackups/30-09-2017.dump.bz2"
+
+#echo "Command.new.specialcreate('thirdquarter', Date.parse('30-09-2017'), Date.parse('30-06-2017'), Date.parse('30-09-2017'))" | rails c
 
 
 #First quarter 2018 - removed from auswahl
-./loadsingledump.sh "/home/sandro/Documents/philochbackups/01-04-2018.dump.bz2"
+#./loadsingledump.sh "/home/sandro/Documents/philochbackups/01-04-2018.dump.bz2"
 
-echo "Command.new.specialcreate('firstquarter18', Date.parse('01-04-2018'), Date.parse('30-06-2017'), Date.parse('31-03-2018'))" | rails c
+#echo "Command.new.specialcreate('firstquarter18', Date.parse('01-04-2018'), Date.parse('30-06-2017'), Date.parse('31-03-2018'))" | rails c
 
 
 #Latest report for all time, with newest backup
