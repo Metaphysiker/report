@@ -5,4 +5,8 @@ class AlchemyPage < ApplicationRecord
   has_many :topics, through: :alchemy_essence_topics_topics
 
   scope :all_except, ->(ids) { where.not(creator_id: ids) }
+
+    def url
+      "www.philosophie.ch"
+    end
 end

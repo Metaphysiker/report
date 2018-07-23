@@ -1,16 +1,31 @@
+<div class="dropdown mt-1">
+  <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sprache:
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <% language = ["de", "fr"] %>
+    <% language.each do |language| %>
+        <%# link_to language.name, url_for(locale: language.abbreviation), class:"dropdown-item" %>
+        <%= link_to language.to_s, url_for({:language => language.to_s}), class:"dropdown-item" %>
+    <% end %>
+  </div>
+</div>
+
 <h1>Kommentare</h1>
 <%= @comments.count %>
 <br>
 
 <br>
 <h2>Neuste Kommentare</h2>
-<%= @comments.order(:created_at).reverse_order.each do |comment| %>
+<% @comments.order(:created_at).reverse_order.each do |comment| %>
     Artikel:<h2> <%= AlchemyPage.find_by_id(comment.commentable_id).name %></h2>
     <br>
     <%= comment.body %>
     <br>
     <br>
 <% end %>
+
+<hr />
 
 <% @articleswithcomments.each do |article| %>
  <h2><%= article.name %></h2>  <br>

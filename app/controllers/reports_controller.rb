@@ -21,8 +21,25 @@ class ReportsController < ApplicationController
 
   def comments
 
+    if params[:language].nil?
+      @comments = Comment.where.not(confirmed_at: nil)
+    else
+      lang_comments = []
+      Comment.where.not(confirmed_at: nil).each do |comment|
+      #Comment.all.each do |comment|
+      #Comment.where("created_at > ?", Date.today - 7.days).each do |comment|
+
+
+        if (AlchemyPage.where(id: comment.commentable_id).exists?) && (AlchemyPage.find(comment.commentable_id).language_code == params[:language])
+          lang_comments.push(comment.id)
+
+        end
+      end
+      @comments = Comment.where(id: lang_comments)
+    end
+
     articles = []
-    @comments = Comment.where.not(confirmed_at: nil)
+    #@comments = Comment.where.not(confirmed_at: nil)
 
     Comment.where.not(confirmed_at: nil).each do |comment|
     #Comment.all.each do |comment|
