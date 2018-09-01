@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/kommentare/', to: 'reports#comments'
 
+    get '/allcomments/', to: 'reports#allcomments'
+
   get '/nokogiri/', to: 'parser#nokogiri'
 
   get '/philosophieaktuell/', to: 'reports#philosophieaktuell'

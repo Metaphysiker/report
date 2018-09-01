@@ -7,6 +7,14 @@ class AlchemyPage < ApplicationRecord
   scope :all_except, ->(ids) { where.not(creator_id: ids) }
 
     def url
-      "www.philosophie.ch"
+      "www.philosophie.chx"
     end
+
+    def lead
+
+      element = AlchemyElement.where(page_id: self.id).where(name: "intro")
+      content = AlchemyContent.where(element_id: element.last.id).where(essence_type: "Alchemy::EssenceRichtext")
+    end
+
+
 end

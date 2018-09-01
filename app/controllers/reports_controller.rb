@@ -58,6 +58,45 @@ class ReportsController < ApplicationController
     @articleswithcomments = articles.order(created_at: :desc)
   end
 
+  def allcomments
+
+    if params[:language].nil?
+      @comments = Comment.all
+    else
+      lang_comments = []
+      Comment.all.each do |comment|
+      #Comment.all.each do |comment|
+      #Comment.where("created_at > ?", Date.today - 7.days).each do |comment|
+
+
+        if (AlchemyPage.where(id: comment.commentable_id).exists?) && (AlchemyPage.find(comment.commentable_id).language_code == params[:language])
+          lang_comments.push(comment.id)
+
+        end
+      end
+      @comments = Comment.where(id: lang_comments)
+    end
+
+    articles = []
+    #@comments = Comment.where.not(confirmed_at: nil)
+
+    Comment.where.not(confirmed_at: nil).each do |comment|
+    #Comment.all.each do |comment|
+    #Comment.where("created_at > ?", Date.today - 7.days).each do |comment|
+
+      if AlchemyPage.where(id: comment.commentable_id).exists?
+        puts comment.id
+        articles.push(AlchemyPage.find(comment.commentable_id))
+      end
+    end
+
+    articles = articles.uniq
+
+    articles = AlchemyPage.where(id: articles.map(&:id))
+
+    @articleswithcomments = articles.order(created_at: :desc)
+  end
+
   def liebeundgemeinschaft
     articles = []
     @comments = Comment.where.not(confirmed_at: nil)
@@ -82,7 +121,7 @@ class ReportsController < ApplicationController
 
   def philosophieaktuell
     articles = []
-    @comments = Comment.where.not(confirmed_at: nil)
+    #@comments = Comment.where.not(confirmed_at: nil)
 
     aktuellarticles = getallarticleswithtag("Projekt Philosophie aktuell")
 

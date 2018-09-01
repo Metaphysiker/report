@@ -6,7 +6,8 @@ class IonicController < ApplicationController
     @pages = AlchemyPage.where(page_layout: "article")
 
     respond_to do |format|
-      format.json { render json: @pages }
+      format.json
+      #format.json { render json: @pages }
      end
   end
 
