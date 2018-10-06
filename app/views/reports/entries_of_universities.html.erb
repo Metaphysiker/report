@@ -7,10 +7,19 @@
 <% uni_accounts = AlchemyUser.where(alchemy_roles: "institution").order(:created_at) %>
 
 <% uni_accounts.each do |uni| %>
-  <b>Universität: </b> <%= Profile.find(uni.id).name %><br />
+  <h1><%= Profile.find(uni.id).name %><br /></h1>
   <b>Eingetragene Events: </b> <%= AlchemyPage.where(page_layout: "event", creator_id: uni.id).count %><br />
   <b>Eingetragene Stellenangebote: </b> <%= AlchemyPage.where(page_layout: "job", creator_id: uni.id).count  %><br />
   <b>Eingetragene CfP: </b> <%= AlchemyPage.where(page_layout: "call_for_papers", creator_id: uni.id).count %><br />
+  <br />
 
+  <h3>Events: </h3>
+  <%= line_chart AlchemyPage.where(page_layout: "event", creator_id: uni.id).group_by_week(:created_at).count %>
+  <hr />
+  <h3>Stellenangebote: </h3>
+  <%= line_chart AlchemyPage.where(page_layout: "job", creator_id: uni.id).group_by_month(:created_at).count %>
+  <hr />
+  <h3>CfP: </h3>
+  <%= line_chart AlchemyPage.where(page_layout: "call_for_papers", creator_id: uni.id).group_by_week(:created_at).count %>
   <hr />
 <% end %>
