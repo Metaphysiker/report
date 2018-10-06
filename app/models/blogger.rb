@@ -68,4 +68,9 @@ class Blogger < ApplicationRecord
 
   end
 
+  def setbeginninganddeadline(beginning, deadline)
+    #"2018-11-30" Year - Month - Day
+  end
+
+
 end

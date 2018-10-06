@@ -426,7 +426,8 @@ class ReportsController < ApplicationController
     AlchemyPage.where(page_layout: "article").where(id: ids)
   end
 
-
-
+  def entries_of_universities
+   @echo = "echo!"
+  end
 
 end

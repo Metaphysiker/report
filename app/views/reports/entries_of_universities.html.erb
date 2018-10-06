@@ -1,0 +1,16 @@
+<% all_uni_names = Profile.all.distinct.pluck(:institutional_affiliation) %>
+
+<% all_uni_names.delete("") %>
+
+<% all_uni_names.inspect %>
+
+<% uni_accounts = AlchemyUser.where(alchemy_roles: "institution").order(:created_at) %>
+
+<% uni_accounts.each do |uni| %>
+  <b>Universität: </b> <%= Profile.find(uni.id).name %><br />
+  <b>Eingetragene Events: </b> <%= AlchemyPage.where(page_layout: "event", creator_id: uni.id).count %><br />
+  <b>Eingetragene Stellenangebote: </b> <%= AlchemyPage.where(page_layout: "job", creator_id: uni.id).count  %><br />
+  <b>Eingetragene CfP: </b> <%= AlchemyPage.where(page_layout: "call_for_papers", creator_id: uni.id).count %><br />
+
+  <hr />
+<% end %>

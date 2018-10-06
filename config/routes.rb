@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   get '/kommentare/', to: 'reports#comments'
 
-    get '/allcomments/', to: 'reports#allcomments'
+  get '/entries_of_universities', to: 'reports#entries_of_universities'
+
+  get '/allcomments/', to: 'reports#allcomments'
 
   get '/nokogiri/', to: 'parser#nokogiri'
 
