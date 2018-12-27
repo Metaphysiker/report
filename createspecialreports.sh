@@ -60,6 +60,10 @@ echo "Command.new.specialcreate('secondhalfyear2017f', Date.parse('$DATE'), Date
 ./loadsingledump.sh $LATESTDUMP
 echo "Command.new.specialcreate('actual2017', Date.parse('$DATE'), Date.parse('01-01-2017'), Date.parse('$DATE'))" | rails c
 
+#latest report for 01-01-2018 - today
+./loadsingledump.sh $LATESTDUMP
+echo "Command.new.specialcreate('actual2018', Date.parse('$DATE'), Date.parse('01-01-2018'), Date.parse('$DATE'))" | rails c
+
 
 
 heroku pg:reset --confirm reportseite
