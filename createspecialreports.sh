@@ -28,6 +28,13 @@ echo "Command.new.specialcreate('secondhalfyear2017', Date.parse('01-01-2018'), 
 
 echo "Command.new.specialcreate('year2017', Date.parse('31-12-2017'), Date.parse('01-01-2017'), Date.parse('31-12-2017'))" | rails c
 
+#year 2018
+
+./loadsingledump.sh "/home/sandro/Documents/philochbackups/31-12-2018.dump.bz2"
+
+echo "Command.new.specialcreate('year2018', Date.parse('31-12-2018'), Date.parse('01-01-2018'), Date.parse('31-12-2018'))" | rails c
+
+
 # First Half Year 2018
 ./loadsingledump.sh "/home/sandro/Documents/philochbackups/01-07-2018.dump.bz2"
 
@@ -63,6 +70,10 @@ echo "Command.new.specialcreate('actual2017', Date.parse('$DATE'), Date.parse('0
 #latest report for 01-01-2018 - today
 ./loadsingledump.sh $LATESTDUMP
 echo "Command.new.specialcreate('actual2018', Date.parse('$DATE'), Date.parse('01-01-2018'), Date.parse('$DATE'))" | rails c
+
+#latest report for 01-01-2019 - today
+./loadsingledump.sh $LATESTDUMP
+echo "Command.new.specialcreate('actual2019', Date.parse('$DATE'), Date.parse('01-01-2019'), Date.parse('$DATE'))" | rails c
 
 
 
