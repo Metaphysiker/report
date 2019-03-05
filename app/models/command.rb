@@ -167,7 +167,7 @@ class Command
     #"{all_unis}".map! {|item| item.humanize.downcase}
 
     all_unis.each do |uni|
-
+      next if uni.nil?
       university = report.universities.create(title: uni.humanize.downcase)
 
       hash = {}
@@ -400,7 +400,7 @@ class Command
 
       if scope.nil?
         count_topics(profile, hash_of_all_topics)
-      elsif AlchemyUser.find(profile.id).alchemy_roles == scope
+      elsif !AlchemyUser.where(id: profile.id).empty? && AlchemyUser.find(profile.id).alchemy_roles == scope
         count_topics(profile, hash_of_all_topics)
       end
 
@@ -431,6 +431,7 @@ class Command
 
 
     Profile.where(level:0).each do |profile|
+      next if AlchemyUser.where(id: profile.id).empty?
       next if AlchemyUser.find(profile.id).alchemy_roles != "member"
       next if profile.topics.empty?
 
@@ -462,7 +463,7 @@ class Command
     final_array = []
 
     Profile.all.each do |profile|
-
+      next if AlchemyUser.where(id: profile.id).empty?
       if AlchemyUser.find(profile.id).alchemy_roles == scope
         if profile.level == 1
           count_topics(profile, expert_data)
