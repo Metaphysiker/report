@@ -3,6 +3,9 @@
 #In case relations are not found, do this: rails db < db/reportswithoutconnect.dump
 # Then ./createspecialreports.sh
 
+#In case database or schema has been altered:
+#
+
 #create a check entry
 rails runner 'Checked.new.checkfinished'
 
